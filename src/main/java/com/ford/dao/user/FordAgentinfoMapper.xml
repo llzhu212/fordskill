@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ford.dao.user.FordAgentinfoMapper">
+  <resultMap id="BaseResultMap" type="com.ford.entity.user.FordAgentinfo">
+    <result column="ID" jdbcType="OTHER" property="id" />
+    <result column="CODE" jdbcType="OTHER" property="code" />
+    <result column="NAME" jdbcType="OTHER" property="name" />
+    <result column="ABBREVIATION" jdbcType="OTHER" property="abbreviation" />
+    <result column="PROVINCE" jdbcType="OTHER" property="province" />
+    <result column="CITY" jdbcType="OTHER" property="city" />
+    <result column="ADDRESS" jdbcType="OTHER" property="address" />
+    <result column="TELPHONE" jdbcType="OTHER" property="telphone" />
+    <result column="LONGITUDE" jdbcType="OTHER" property="longitude" />
+    <result column="LATITUDE" jdbcType="OTHER" property="latitude" />
+    <result column="EMAIL" jdbcType="OTHER" property="email" />
+    <result column="REGION" jdbcType="OTHER" property="region" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, CODE, NAME, ABBREVIATION, PROVINCE, CITY, ADDRESS, TELPHONE, LONGITUDE, LATITUDE, 
+    EMAIL, REGION
+  </sql>
+  <select id="selectByExample" parameterType="com.ford.entity.user.FordAgentinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FORD_AGENTINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.ford.entity.user.FordAgentinfoExample">
+    delete from FORD_AGENTINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ford.entity.user.FordAgentinfo">
+    insert into FORD_AGENTINFO (ID, CODE, NAME, ABBREVIATION, 
+      PROVINCE, CITY, ADDRESS, 
+      TELPHONE, LONGITUDE, LATITUDE, 
+      EMAIL, REGION)
+    values (#{id,jdbcType=OTHER}, #{code,jdbcType=OTHER}, #{name,jdbcType=OTHER}, #{abbreviation,jdbcType=OTHER}, 
+      #{province,jdbcType=OTHER}, #{city,jdbcType=OTHER}, #{address,jdbcType=OTHER}, 
+      #{telphone,jdbcType=OTHER}, #{longitude,jdbcType=OTHER}, #{latitude,jdbcType=OTHER}, 
+      #{email,jdbcType=OTHER}, #{region,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ford.entity.user.FordAgentinfo">
+    insert into FORD_AGENTINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="abbreviation != null">
+        ABBREVIATION,
+      </if>
+      <if test="province != null">
+        PROVINCE,
+      </if>
+      <if test="city != null">
+        CITY,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="telphone != null">
+        TELPHONE,
+      </if>
+      <if test="longitude != null">
+        LONGITUDE,
+      </if>
+      <if test="latitude != null">
+        LATITUDE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="region != null">
+        REGION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=OTHER},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=OTHER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=OTHER},
+      </if>
+      <if test="abbreviation != null">
+        #{abbreviation,jdbcType=OTHER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=OTHER},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=OTHER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=OTHER},
+      </if>
+      <if test="telphone != null">
+        #{telphone,jdbcType=OTHER},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=OTHER},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=OTHER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=OTHER},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ford.entity.user.FordAgentinfoExample" resultType="java.lang.Long">
+    select count(*) from FORD_AGENTINFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update FORD_AGENTINFO
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=OTHER},
+      </if>
+      <if test="record.code != null">
+        CODE = #{record.code,jdbcType=OTHER},
+      </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=OTHER},
+      </if>
+      <if test="record.abbreviation != null">
+        ABBREVIATION = #{record.abbreviation,jdbcType=OTHER},
+      </if>
+      <if test="record.province != null">
+        PROVINCE = #{record.province,jdbcType=OTHER},
+      </if>
+      <if test="record.city != null">
+        CITY = #{record.city,jdbcType=OTHER},
+      </if>
+      <if test="record.address != null">
+        ADDRESS = #{record.address,jdbcType=OTHER},
+      </if>
+      <if test="record.telphone != null">
+        TELPHONE = #{record.telphone,jdbcType=OTHER},
+      </if>
+      <if test="record.longitude != null">
+        LONGITUDE = #{record.longitude,jdbcType=OTHER},
+      </if>
+      <if test="record.latitude != null">
+        LATITUDE = #{record.latitude,jdbcType=OTHER},
+      </if>
+      <if test="record.email != null">
+        EMAIL = #{record.email,jdbcType=OTHER},
+      </if>
+      <if test="record.region != null">
+        REGION = #{record.region,jdbcType=OTHER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update FORD_AGENTINFO
+    set ID = #{record.id,jdbcType=OTHER},
+      CODE = #{record.code,jdbcType=OTHER},
+      NAME = #{record.name,jdbcType=OTHER},
+      ABBREVIATION = #{record.abbreviation,jdbcType=OTHER},
+      PROVINCE = #{record.province,jdbcType=OTHER},
+      CITY = #{record.city,jdbcType=OTHER},
+      ADDRESS = #{record.address,jdbcType=OTHER},
+      TELPHONE = #{record.telphone,jdbcType=OTHER},
+      LONGITUDE = #{record.longitude,jdbcType=OTHER},
+      LATITUDE = #{record.latitude,jdbcType=OTHER},
+      EMAIL = #{record.email,jdbcType=OTHER},
+      REGION = #{record.region,jdbcType=OTHER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
