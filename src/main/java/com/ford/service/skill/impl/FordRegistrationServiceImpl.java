@@ -2,8 +2,6 @@ package com.ford.service.skill.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -25,8 +23,8 @@ public class FordRegistrationServiceImpl implements IFordRegistrationService {
 	@Override
 	public int addFordRegist(FordRegistration fordRegistration) throws Exception {
 		// 查询是否
-		String id = callMapper.callFGetId();
-		fordRegistration.setId(id);
+//		String id = callMapper.callFGetId();
+//		fordRegistration.setId(id);
 		return fordRegistrationMapper.insertSelective(fordRegistration);
 	}
 
