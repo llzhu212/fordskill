@@ -20,5 +20,12 @@ public class DateUtil {
 		String result = sdf2.format(date);
 		return result;
 	}
-	
+
+	public static String getCurrentTime(){
+		String time = "";
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		time = sdf.format(date);
+		return time;
+	}
 }
