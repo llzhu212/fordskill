@@ -1,10 +1,8 @@
 package com.ford.controller.user;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ford.controller.user.comment.ExhibitionComment;
 import com.ford.entity.exhibition.FordExhibitionSupplier;
 import com.ford.entity.exhibition.FordExhibitionSupplierExample;
 import com.ford.entity.exhibition.FordExhibitionSupplierExample.Criteria;
 import com.ford.entity.exhibition.FordExhibitionUserinfo;
+import com.ford.entity.user.FordAgentinfo;
+import com.ford.entity.user.FordAgentinfoExample;
 import com.ford.service.exhibition.IFordExhSupplierService;
 import com.ford.service.exhibition.IFordExhUserinfoService;
+import com.ford.service.user.IFordAgentinfoService;
 import com.ford.utils.DateUtil;
 
 @Controller
@@ -34,19 +36,26 @@ public class ExhibitionCotroller {
 	@Autowired
 	private IFordExhSupplierService fordExhSupplierService;
 
+	@Autowired
+	private IFordAgentinfoService fordagentinfoService;
+	
 	@RequestMapping(value = "/addExhibition.act")
-	// public ModelAndView addExhibition(FordExhibitionUserinfo
-	// fordExhibitionUserinfo) {
-	public ModelAndView addExhibition(@RequestBody String json) {
-		FordExhibitionUserinfo fordExhibitionUserinfo = new FordExhibitionUserinfo();
-		try {
-			ObjectMapper om = new ObjectMapper();
-			fordExhibitionUserinfo = om.readValue(json, FordExhibitionUserinfo.class);
-		} catch (Exception e) {
-			e.printStackTrace();
+	 public ModelAndView addExhibition(FordExhibitionUserinfo
+	 fordExhibitionUserinfo) {
+		ModelAndView modelAndView = new ModelAndView();
+//	public ModelAndView addExhibition(@RequestBody String json) {
+//		 fordExhibitionUserinfo = new FordExhibitionUserinfo();
+//		try {
+//			ObjectMapper om = new ObjectMapper();
+////			fordExhibitionUserinfo = om.readValue(json, FordExhibitionUserinfo.class);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		if (null==fordExhibitionUserinfo.getCode()||"".equals(fordExhibitionUserinfo.getCode())||null==fordExhibitionUserinfo.getName()||"".equals(fordExhibitionUserinfo.getName())||null==fordExhibitionUserinfo.getPhone()||"".equals(fordExhibitionUserinfo.getPhone())) {
+			modelAndView.setViewName("forward:/fordexhibition/forwardAdd.act");
+			return modelAndView;
 		}
 		boolean flag = false;
-		ModelAndView modelAndView = new ModelAndView();
 		try {
 			fordExhibitionUserinfo.setIswin("0");
 			String time = DateUtil.getCurrentTiem();
@@ -54,7 +63,16 @@ public class ExhibitionCotroller {
 			fordExhUserinfoService.addUserinfo(fordExhibitionUserinfo);
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			modelAndView.setViewName("chongfu");
+			try {
+				FordAgentinfoExample fordAgentinfoExample = new FordAgentinfoExample();
+				fordAgentinfoExample.createCriteria().andCityEqualTo(ExhibitionComment.EXH_ADDRESS);
+				List<FordAgentinfo> list = fordagentinfoService.selectFordInfoByCondition(fordAgentinfoExample);
+				modelAndView.addObject("fordagentlist", list);
+			} catch (Exception e2) {
+				log.error(e2.getMessage());
+			}
+			modelAndView.addObject("chongfuerror", 1).addObject("name", fordExhibitionUserinfo.getName()).addObject("phone", fordExhibitionUserinfo.getPhone()).addObject("code", fordExhibitionUserinfo.getCode());
+			modelAndView.setViewName("/user/bm");
 			return modelAndView;
 		}
 		// 抽奖
@@ -94,11 +112,54 @@ public class ExhibitionCotroller {
 			log.error("未中奖:" + e.getMessage());
 		}
 		if (flag) {
-			modelAndView.setViewName("choujiang2");
+			modelAndView.addObject("winflag", 1);
+			modelAndView.setViewName("/user/win");
 		} else {
-			modelAndView.setViewName("choujiang1");
+			modelAndView.addObject("winflag", 0);
+			modelAndView.setViewName("/user/win");
 		}
 		return modelAndView;
 	}
 
+//	@RequestMapping(value = "/forwardAdd.act")
+//	public void forwardAdd() throws Exception {
+//		ModelAndView modelAndView = new ModelAndView();
+//		try {
+//			DataInputStream in = new DataInputStream(new FileInputStream(new File("E:/私人文件/二手车代码交接/经销商信息表测试用.csv")));
+//			BufferedReader br= new BufferedReader(new InputStreamReader(in,"GBK"));
+//			List<FordAgentinfo> list = new ArrayList<>();
+//			 String line = null;  
+//			 int i = 1;
+//	            while((line=br.readLine())!=null){  
+//	                String item[] = line.split(",");//CSV格式文件为逗号分隔符文件，这里根据逗号切分 
+//	                FordAgentinfo fordAgentinfo = new FordAgentinfo();
+//	                fordAgentinfo.setRegion(item[0]);
+//	                fordAgentinfo.setProvince(item[1]);
+//	                fordAgentinfo.setCity(item[2]);
+//	                fordAgentinfo.setCode(item[3]);
+//	                fordAgentinfo.setAbbreviation(item[4]);
+//	                fordAgentinfo.setName(item[5]);
+//	                fordagentinfoService.addInfo(fordAgentinfo);
+//	                System.out.println("添加第"+i+"条信息");
+//	                list.add(fordAgentinfo);
+//	                i++;
+//	            } 
+//	            System.out.println("读取完毕,总共读取:"+i+"条信息");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+////		return modelAndView;
+//	}
+
+	@RequestMapping(value = "/forwardAdd.act")
+	public ModelAndView forwardAdd() throws Exception {
+		String city = ExhibitionComment.EXH_ADDRESS;
+		ModelAndView modelAndView = new ModelAndView();
+		FordAgentinfoExample fordAgentinfoExample = new FordAgentinfoExample();
+		fordAgentinfoExample.createCriteria().andCityEqualTo(city);
+		List<FordAgentinfo> list = fordagentinfoService.selectFordInfoByCondition(fordAgentinfoExample);
+		modelAndView.addObject("fordagentlist", list);
+		modelAndView.setViewName("/user/bm");
+		return modelAndView;
+	}
 }
