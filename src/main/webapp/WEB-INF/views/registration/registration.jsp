@@ -224,8 +224,9 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 			<div class="div_c_l"><span>经销商</span>
 			</div>
 			<div class="div_c_r">
-				<input type="text" name="name" id="name" value="${agent.name}" 
+				<input type="text"  id="name" value="${agent.name}" 
 					disabled="disabled"></input>
+				<input type="hidden" name="name" value="${agent.name}" />
 			</div>
 		</div>
 		<div style="clear:both"></div>
@@ -237,6 +238,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 			<div class="div_c_r">
 				<input type="text" name="code" id="code" value="${agent.code}" 
 					disabled="disabled"></input>
+				<input type="hidden" name="code" value="${agent.code}" />
 			</div>
 		</div>
 		<div style="clear:both"></div>
@@ -248,6 +250,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 			<div class="div_c_r">
 				<input type="text" name="region" id="region" value="${agent.region}" 
 					disabled="disabled"></input>
+				<input type="hidden" name="region" value="${agent.region}" />
 			</div>
 		</div>
 		<div style="clear:both"></div>
@@ -257,7 +260,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 			<div class="div_c_l"><span> 姓名一</span>
 			</div>
 			<div class="div_c_r">
-				<input type="text" name="regisusers.users[0].name" id="username1" placeholder="请输入姓名">
+				<input type="text" name="users[0].name" id="username1" placeholder="请输入姓名">
 					<span style="float: right;margin-top: -30px;margin-right: 10px" id="tish"></span>
 				</input>
 			</div>
@@ -268,7 +271,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 		<div class="div_col" id="me">
 			<div class="div_c_l"><span style="width:70px;">电话</span>
 			</div>
-			<div class="div_c_r"><input type="tel"  name="regisusers.users[0].phone" onkeydown="" id="phone1" value="" placeholder="请输入手机">
+			<div class="div_c_r"><input type="tel"  name="users[0].phone" onkeydown="" id="phone1" value="" placeholder="请输入手机">
 				<span style="float: right;margin-top: -30px;margin-right: 10px" id="tss"></span>
 			</div>
 		</div>
@@ -281,14 +284,14 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 			<div class="div_c_r" style="padding: 0;">
 				<div style="margin-left: 28px;" class="inp_radio">
 					<div class="checkboxforget1">
-						<input type="radio" id="Remember1" name="regisusers.users[0].sex" id="sex" value="0" checked />
+						<input type="radio" id="Remember1" name="users[0].sex" id="sex" value="0" checked />
 						<label for="Remember1"></label>
 					</div>
 					<font color="white">男</font>
 				</div>
 				<div style="margin-left: 8px;" class="inp_radio">
 					<div class="checkboxforget1">
-						<input type="radio" id="Remember2" name="regisusers.users[0].sex" id="sex" value="1" />
+						<input type="radio" id="Remember2" name="users[0].sex" id="sex" value="1" />
 						<label for="Remember2"></label>
 					</div>
 					<font color="white">女</font>
@@ -301,7 +304,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 		<div class="div_col" id="me">
 			<div class="div_c_l"><span> 姓名二</span>
 			</div>
-			<div class="div_c_r"><input type="text" name="regisusers.users[1].name" id="username2" placeholder="请输入姓名">
+			<div class="div_c_r"><input type="text" name="users[1].name" id="username2" placeholder="请输入姓名">
 				<span style="float: right;margin-top: -30px;margin-right: 10px" id="tish2"></span></input>
 			</div>
 		</div>
@@ -311,7 +314,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 		<div class="div_col" id="me">
 			<div class="div_c_l"><span style="width:70px;">电话</span>
 			</div>
-			<div class="div_c_r"><input type="tel" id="phone2" name="regisusers.users[1].phone" onkeydown="" value="" placeholder="请输入手机">
+			<div class="div_c_r"><input type="tel" id="phone2" name="users[1].phone" onkeydown="" value="" placeholder="请输入手机">
 				<span style="float: right;margin-top: -30px;margin-right: 10px" id="tss2"></span>
 			</div>
 		</div>
@@ -324,14 +327,14 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 			<div class="div_c_r" style="padding: 0;">
 				<div style="margin-left: 28px;" class="inp_radio">
 					<div class="checkboxforget1">
-						<input type="radio" id="Remember3"  name="regisusers.users[1].sex" id="sex3" value="0" checked />
+						<input type="radio" id="Remember3"  name="users[1].sex" id="sex3" value="0" checked />
 						<label for="Remember3"></label>
 					</div>
 					<font color="white">男</font>
 				</div>
 				<div style="margin-left: 8px;" class="inp_radio">
 					<div class="checkboxforget1">
-						<input type="radio" id="Remember4"  name="regisusers.users[1].sex" id="sex4" value="1" />
+						<input type="radio" id="Remember4"  name="users[1].sex" id="sex4" value="1" />
 						<label for="Remember4"></label>
 					</div>
 					<font color="white">女</font>

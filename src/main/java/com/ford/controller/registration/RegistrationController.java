@@ -84,8 +84,19 @@ public class RegistrationController {
 	 */
 	@RequestMapping(value ="/addRegistration")
 	public String addRegistration(HttpServletRequest request,Model model,
-			FordRegistrationUsers regisusers,FordAgentinfo agent) throws Exception {
-		
+			FordRegistrationUsers fordRegistrationUsers,FordAgentinfo agent) throws Exception {
+		//获取登录session
+		LoginSessionVO loginSessionVO =(LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
+		//判断是否已经报名
+		FordRegistrationExample fordRegistrationExample = new FordRegistrationExample();
+		Criteria criteria = fordRegistrationExample.createCriteria();
+		criteria.andCodeEqualTo(loginSessionVO.getAgentcode());
+		criteria.andCodeEqualTo(loginSessionVO.getOpenid());
+		List<FordRegistration> list = fordRegistrationService.findFordRegist(fordRegistrationExample);
+		if(null != list && list.size()>0){
+			//返回
+			return "registration/chongfu";
+		}
 		//添加报名信息
 		FordRegistration regis = new FordRegistration();
 		regis.setAgentname(agent.getName());
@@ -100,8 +111,8 @@ public class RegistrationController {
 		regis.setId(regisid);
 		fordRegistrationService.addFordRegist(regis);
 		
-		for (int i = 0; i < regisusers.getUsers().size(); i++) {
-			FordRegistrationUserinfo user = regisusers.getUsers().get(i);
+		for (int i = 0; i < fordRegistrationUsers.getUsers().size(); i++) {
+			FordRegistrationUserinfo user = fordRegistrationUsers.getUsers().get(i);
 			user.setCode(agent.getCode());
 			user.setName(user.getName());
 			user.setPhone(user.getPhone());
