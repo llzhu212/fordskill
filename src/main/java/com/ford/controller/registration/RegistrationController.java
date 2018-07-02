@@ -101,8 +101,6 @@ public class RegistrationController {
 		FordRegistration regis = new FordRegistration();
 		regis.setAgentname(agent.getName());
 		regis.setCode(agent.getCode());
-		//获取登录session
-		LoginSessionVO loginSessionVO =(LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
 		regis.setOpenid(loginSessionVO.getOpenid());
 		regis.setRegion(agent.getRegion());
 		regis.setTime(DateUtil.getCurrentTime());
