@@ -2,6 +2,7 @@ package com.ford.controller.login;
 
 import java.util.List;
 
+import javax.persistence.metamodel.SetAttribute;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,14 +36,14 @@ public class LoginController {
 		 * 判断openid
 		 */
 //		String openid = (String) request.getSession().getAttribute("openid");
-//		String openid =(String) request.getAttribute("openid");
 		String openid =(String) request.getParameter("openid"); 
 		//如果openid为空
 		if(null == openid || ""==openid){
 //			return "http://wx.e2capp.com/auth.ashx?serv_name=ershou&scope=snsapi_userinfo&i=13";
+			request.getSession().setAttribute("openid", "001");
 			return "login";
 		}else{
-			
+			request.getSession().setAttribute("openid", openid);
 			return "login";
 		}
 	}
@@ -89,8 +90,7 @@ public class LoginController {
 		LoginSessionVO loginSessionVO = new LoginSessionVO();
 		loginSessionVO.setAgentcode(loginUserVO.getAgentcode());
 		String openid = (String) request.getSession().getAttribute("openid");
-//		loginSessionVO.setOpenid(openid);
-		loginSessionVO.setOpenid("001");
+		loginSessionVO.setOpenid(openid);
 		request.getSession().setAttribute("loginSessionVO", loginSessionVO);
 		return "home";
 	}
