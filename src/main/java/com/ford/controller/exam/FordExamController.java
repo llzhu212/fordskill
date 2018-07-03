@@ -60,12 +60,13 @@ public class FordExamController {
 					return "";
 				}else{
 					//进入考试链接
-					
+					return "redirect:"+ExampleComment.EXAM_EXAMADDRESS +openid;
 				}
 			} catch (Exception e) {
 				log.error(e.getMessage());
+				return "";
 			}
-			return "";
+			
 		}
 	}
 	
