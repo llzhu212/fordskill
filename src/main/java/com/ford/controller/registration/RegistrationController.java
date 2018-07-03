@@ -55,7 +55,6 @@ public class RegistrationController {
 		FordRegistrationExample fordRegistrationExample = new FordRegistrationExample();
 		Criteria criteria = fordRegistrationExample.createCriteria();
 		criteria.andCodeEqualTo(loginSessionVO.getAgentcode());
-		criteria.andCodeEqualTo(loginSessionVO.getOpenid());
 		List<FordRegistration> list = fordRegistrationService.findFordRegist(fordRegistrationExample);
 		if(null != list && list.size()>0){
 			//返回
@@ -91,7 +90,6 @@ public class RegistrationController {
 		FordRegistrationExample fordRegistrationExample = new FordRegistrationExample();
 		Criteria criteria = fordRegistrationExample.createCriteria();
 		criteria.andCodeEqualTo(loginSessionVO.getAgentcode());
-		criteria.andCodeEqualTo(loginSessionVO.getOpenid());
 		List<FordRegistration> list = fordRegistrationService.findFordRegist(fordRegistrationExample);
 		if(null != list && list.size()>0){
 			//返回

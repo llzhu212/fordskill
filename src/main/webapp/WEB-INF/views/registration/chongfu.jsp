@@ -14,81 +14,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="x5-page-mode" content="app">
     <title>长安福特二手车技能大赛</title>
  <style>
-	body{
-	background-color: -moz-linear-gradient( top,#ccc,#000);
-	}
-	#login{
-		box-shadow:
-		0 0 2px rgba(0,0,0,0.2),
-		0 1px 1px rgba(0,0,0,.2),
-		0 3px 0 #fff,
-		0 4px 0 rgba(0,0,0,.2);
- 
+ 	.chongfu{
+		width:300px;
+		height:200px;
+		padding:20px;
+		padding-top:40px;
+		background-color:rgba(0,0,0,0.5);
+		border-radius:4px;
 		position:absolute;
-		z-index: 0;
- 
-		/*
-		-moz-box-shadow:5px 5px 5px #d0d0d0 inset; 
-		-webkit-box-shadow:5px 5px 5px #d0d0d0 inset;
-		box-shadow:5px 5px 5px #d0d0d0 inset; */
-	}
- 
-	#login:before{
-		content:'';
-		position:absolute;
-		z-index:-1;
-		border :1px dashed #ccc;
-		top :5px;bottom:5px;left:5px;right:5px;
-		box-shadow: 0 0 0 1px #fff;
-	}
- 
-	h3{
-		text-shadow: 0 1px 0 rgba(255,25,55,.9);
+		left:50%;
+		top:50%;
+		margin:-150px 0 0 -150px;
+		z-index:99;
+		text-align:center}
 		
-		text-transform:uppercase;
-		text-align:center;
-		color:#d0d0d0;
-		margin:0 0 30px 0;/*ma外pa内*/
-		letter-spacing:4px;
-		position:relative;
-	}
- 
-	h3:after, h3:before{
-		background-color:#777;
-		content:"";
-		height:1px;
-		position:absolute;
-		top:15px;width:120px;
-	}
- 
-	h3:after{
-		background-image:-webkit-gradient(linear,left top ,right top,from(#777),to(#fff) );
+		.toast--blue .toast__icon{
+			  background-color:#1D72F3;
+			}
 		
-		background-image:-webkit-linear-gradient(left,#777,#fff);
- 
-		background-image:linear-gradient(left,#777,#fff);
-		right:0;
- 
-	}
- 
-	h3:before{
-		background-image:-webkit-gradient(linear,right top,left top,from(#777),to(#777));
- 
-		background-image:-webkit-linear-gradient(right,#777,#fff);
- 
-		background-image:linear-gradient(right,#777,#fff);
-		left:0;
-	}
-	#login{
-	background:linear-gradient(top,#ccc,#000);
-	}
+.toast__icon{
+  position:absolute;
+  top:50%;
+  left:22px;
+  transform:translateY(-50%);
+  width:14px;
+  height:14px;
+  padding: 7px;
+  border-radius:50%;
+  display:inline-block;
+}
+		
   </style>
     <link rel="stylesheet" type="text/css" href="../static/css/login.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-		<div class="login layui-anim layui-anim-up">
+		<div class="chongfu layui-anim layui-anim-up" >
+			<img width="30px" height="30px" src="../static/img/notice.png">&nbsp;&nbsp; 
 			<span style="color: white;">您已经成功报名了，请勿重复报名</span>
+			<button class="layui-btn layui-btn-radius layui-btn-normal"  
+			style="width: 50%; margin-top: 40px;"
+			 onclick="javascript:window.location.href='<%=path%>/login/toHome.action'"
+					  type="submit" lay-filter="login">确定</button>
 		</div>
 </body>
 </html>

@@ -34,12 +34,15 @@ public class LoginController {
 		/**
 		 * 判断openid
 		 */
-		String openid = (String) request.getSession().getAttribute("openid");
+//		String openid = (String) request.getSession().getAttribute("openid");
+//		String openid =(String) request.getAttribute("openid");
+		String openid =(String) request.getParameter("openid"); 
 		//如果openid为空
 		if(null == openid || ""==openid){
 //			return "http://wx.e2capp.com/auth.ashx?serv_name=ershou&scope=snsapi_userinfo&i=13";
 			return "login";
 		}else{
+			
 			return "login";
 		}
 	}
@@ -90,5 +93,10 @@ public class LoginController {
 		loginSessionVO.setOpenid("001");
 		request.getSession().setAttribute("loginSessionVO", loginSessionVO);
 		return "home";
+	}
+	
+	@RequestMapping(value ="/toHome")
+	public String toHome(HttpServletRequest request) throws Exception {
+			return "home";
 	}
 }

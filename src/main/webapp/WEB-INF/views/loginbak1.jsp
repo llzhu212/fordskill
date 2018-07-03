@@ -1,4 +1,9 @@
-
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -82,9 +87,9 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-		<div class="login layui-anim layui-anim-up">
+		<div class="login layui-anim layui-anim-up" style="height: 100px;">
+			<img width="30px" height="30px" src="../static/img/notice.png">&nbsp;&nbsp;
 			<span style="color: white;">您已经成功报名了，请勿重复报名</span>
 		</div>
 </body>
-</html>
 </html>
