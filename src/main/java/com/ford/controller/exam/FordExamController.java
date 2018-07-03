@@ -71,6 +71,7 @@ public class FordExamController {
 			ObjectMapper om = new ObjectMapper();
 			CallBackVO callBackVO = om.readValue(json, CallBackVO.class);
 			
+			
 		} catch (Exception e) {
 			log.error("===回调报错了=========="+e.getMessage());
 		}
