@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ford.controller.exam.vo.CallBackVO;
+import com.ford.controller.exam.vo.CallVOUtil;
 import com.ford.controller.user.comment.ExampleComment;
 import com.ford.entity.skill.FordRegistration;
 import com.ford.entity.skill.FordRegistrationExample;
+import com.ford.entity.user.FordUserinfoExam;
 import com.ford.service.skill.IFordRegistrationService;
+import com.ford.service.user.IFordUserExamService;
 import com.ford.utils.DateUtil;
 
 @Controller
@@ -26,6 +29,9 @@ public class FordExamController {
 	
 	@Autowired
 	private IFordRegistrationService fordregistrationService;
+	
+	@Autowired
+	private IFordUserExamService fordUserExamService;
 	
 	@RequestMapping(value = "/forwardExam.act")
 	public String forwardExam(HttpServletRequest request){
@@ -65,16 +71,18 @@ public class FordExamController {
 	
 	@RequestMapping(value = "/callback.act")
 	public void callback(HttpServletRequest request){
+		CallVOUtil callVOUtil = new CallVOUtil();
 		try {
 			String json = IOUtils.toString(request.getInputStream());
 			log.error("===回调json串===="+json);
 			ObjectMapper om = new ObjectMapper();
 			CallBackVO callBackVO = om.readValue(json, CallBackVO.class);
-			
-			
+			FordUserinfoExam fordUserinfoExam = callVOUtil.callVO2Exam(callBackVO);
+			fordUserExamService.addFordUserExam(fordUserinfoExam);
 		} catch (Exception e) {
 			log.error("===回调报错了=========="+e.getMessage());
 		}
 	}
+	
 	
 }

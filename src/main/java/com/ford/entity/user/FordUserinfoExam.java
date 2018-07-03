@@ -67,6 +67,8 @@ public class FordUserinfoExam implements Serializable {
 
     private String totalvalue;
 
+    private String activity;
+
     private static final long serialVersionUID = 1L;
 
     public String getId() {
@@ -325,6 +327,14 @@ public class FordUserinfoExam implements Serializable {
         this.totalvalue = totalvalue == null ? null : totalvalue.trim();
     }
 
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity == null ? null : activity.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -363,6 +373,7 @@ public class FordUserinfoExam implements Serializable {
         sb.append(", timetaken=").append(timetaken);
         sb.append(", submittime=").append(submittime);
         sb.append(", totalvalue=").append(totalvalue);
+        sb.append(", activity=").append(activity);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

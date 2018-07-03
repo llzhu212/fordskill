@@ -2343,6 +2343,76 @@ public class FordUserinfoExamExample {
             addCriterion("TOTALVALUE not between", value1, value2, "totalvalue");
             return (Criteria) this;
         }
+
+        public Criteria andActivityIsNull() {
+            addCriterion("ACTIVITY is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityIsNotNull() {
+            addCriterion("ACTIVITY is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityEqualTo(String value) {
+            addCriterion("ACTIVITY =", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityNotEqualTo(String value) {
+            addCriterion("ACTIVITY <>", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityGreaterThan(String value) {
+            addCriterion("ACTIVITY >", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityGreaterThanOrEqualTo(String value) {
+            addCriterion("ACTIVITY >=", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityLessThan(String value) {
+            addCriterion("ACTIVITY <", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityLessThanOrEqualTo(String value) {
+            addCriterion("ACTIVITY <=", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityLike(String value) {
+            addCriterion("ACTIVITY like", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityNotLike(String value) {
+            addCriterion("ACTIVITY not like", value, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityIn(List<String> values) {
+            addCriterion("ACTIVITY in", values, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityNotIn(List<String> values) {
+            addCriterion("ACTIVITY not in", values, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityBetween(String value1, String value2) {
+            addCriterion("ACTIVITY between", value1, value2, "activity");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityNotBetween(String value1, String value2) {
+            addCriterion("ACTIVITY not between", value1, value2, "activity");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
