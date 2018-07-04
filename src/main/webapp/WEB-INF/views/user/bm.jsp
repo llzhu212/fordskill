@@ -129,7 +129,7 @@
 				</div>
 			</form>
 			<div class="btn-wrap">
-				<button class="btn btn-info" onclick="validateForm();">&nbsp;</button>
+				<button id="tj" class="btn btn-info" onclick="validateForm();">&nbsp;</button>
 			</div>
 			<div class="beizhu">
 				<div>
@@ -190,6 +190,7 @@ function validateForm(){
 		flag = false;
 	}
 	if(flag==true){
+		$('#tj').attr("disabled",true);
 		var form = document.getElementById("addUser");
 		form.submit();
 	}
