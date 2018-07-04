@@ -87,6 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
+	<div class="container" style="background-image: url(../static/img/bg3.jpg)">
 	<form name="loginForm" method="post" action="<%=path%>/login/login.action" >
 		<div class="login layui-anim layui-anim-up">
 			<div class="layui-form" action="" method="post">
@@ -115,5 +116,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</form>
+	</div>
 </body>
 </html>

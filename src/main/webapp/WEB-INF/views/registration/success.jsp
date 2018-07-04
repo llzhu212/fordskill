@@ -15,8 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>长安福特二手车技能大赛</title>
  <style>
  	.chongfu{
-		width:300px;
-		height:200px;
+		width:250px;
 		padding:20px;
 		padding-top:40px;
 		background-color:rgba(0,0,0,0.5);
@@ -49,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
+	<div class="container" style="background-image: url(../static/img/bg3.jpg)">
 		<div class="chongfu layui-anim layui-anim-up" >
 			<img width="30px" height="30px" src="../static/img/success.png">&nbsp;&nbsp; 
 			<span style="color: white;">报名成功！请在XX时间内进行答题</span>
@@ -57,5 +57,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 onclick="javascript:window.location.href='<%=path%>/login/toHome.action'"
 					  type="submit" lay-filter="login">确定</button>
 		</div>
+	</div>
 </body>
 </html>
