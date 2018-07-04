@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ford.dao.user.FordUserinfoExamMapper">
+  <resultMap id="BaseResultMap" type="com.ford.entity.user.FordUserinfoExam">
+    <result column="ID" jdbcType="OTHER" property="id" />
+    <result column="OPENID" jdbcType="OTHER" property="openid" />
+    <result column="Q1" jdbcType="OTHER" property="q1" />
+    <result column="Q2" jdbcType="OTHER" property="q2" />
+    <result column="Q3" jdbcType="OTHER" property="q3" />
+    <result column="Q4" jdbcType="OTHER" property="q4" />
+    <result column="Q5" jdbcType="OTHER" property="q5" />
+    <result column="Q6" jdbcType="OTHER" property="q6" />
+    <result column="Q7" jdbcType="OTHER" property="q7" />
+    <result column="Q8" jdbcType="OTHER" property="q8" />
+    <result column="Q9" jdbcType="OTHER" property="q9" />
+    <result column="Q10" jdbcType="OTHER" property="q10" />
+    <result column="Q11" jdbcType="OTHER" property="q11" />
+    <result column="Q12" jdbcType="OTHER" property="q12" />
+    <result column="Q13" jdbcType="OTHER" property="q13" />
+    <result column="Q14" jdbcType="OTHER" property="q14" />
+    <result column="Q15" jdbcType="OTHER" property="q15" />
+    <result column="Q16" jdbcType="OTHER" property="q16" />
+    <result column="Q17" jdbcType="OTHER" property="q17" />
+    <result column="Q18" jdbcType="OTHER" property="q18" />
+    <result column="Q19" jdbcType="OTHER" property="q19" />
+    <result column="Q20" jdbcType="OTHER" property="q20" />
+    <result column="Q21" jdbcType="OTHER" property="q21" />
+    <result column="Q22" jdbcType="OTHER" property="q22" />
+    <result column="Q23" jdbcType="OTHER" property="q23" />
+    <result column="Q24" jdbcType="OTHER" property="q24" />
+    <result column="Q25" jdbcType="OTHER" property="q25" />
+    <result column="Q26" jdbcType="OTHER" property="q26" />
+    <result column="JOINID" jdbcType="OTHER" property="joinid" />
+    <result column="TIMETAKEN" jdbcType="OTHER" property="timetaken" />
+    <result column="SUBMITTIME" jdbcType="OTHER" property="submittime" />
+    <result column="TOTALVALUE" jdbcType="OTHER" property="totalvalue" />
+    <result column="ACTIVITY" jdbcType="OTHER" property="activity" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, OPENID, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, 
+    Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q26, JOINID, TIMETAKEN, SUBMITTIME, 
+    TOTALVALUE, ACTIVITY
+  </sql>
+  <select id="selectByExample" parameterType="com.ford.entity.user.FordUserinfoExamExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from FORD_USERINFO_EXAM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.ford.entity.user.FordUserinfoExamExample">
+    delete from FORD_USERINFO_EXAM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ford.entity.user.FordUserinfoExam">
+    insert into FORD_USERINFO_EXAM (ID, OPENID, Q1, Q2, 
+      Q3, Q4, Q5, Q6, 
+      Q7, Q8, Q9, Q10, 
+      Q11, Q12, Q13, Q14, 
+      Q15, Q16, Q17, Q18, 
+      Q19, Q20, Q21, Q22, 
+      Q23, Q24, Q25, Q26, 
+      JOINID, TIMETAKEN, SUBMITTIME, 
+      TOTALVALUE, ACTIVITY)
+    values (#{id,jdbcType=OTHER}, #{openid,jdbcType=OTHER}, #{q1,jdbcType=OTHER}, #{q2,jdbcType=OTHER}, 
+      #{q3,jdbcType=OTHER}, #{q4,jdbcType=OTHER}, #{q5,jdbcType=OTHER}, #{q6,jdbcType=OTHER}, 
+      #{q7,jdbcType=OTHER}, #{q8,jdbcType=OTHER}, #{q9,jdbcType=OTHER}, #{q10,jdbcType=OTHER}, 
+      #{q11,jdbcType=OTHER}, #{q12,jdbcType=OTHER}, #{q13,jdbcType=OTHER}, #{q14,jdbcType=OTHER}, 
+      #{q15,jdbcType=OTHER}, #{q16,jdbcType=OTHER}, #{q17,jdbcType=OTHER}, #{q18,jdbcType=OTHER}, 
+      #{q19,jdbcType=OTHER}, #{q20,jdbcType=OTHER}, #{q21,jdbcType=OTHER}, #{q22,jdbcType=OTHER}, 
+      #{q23,jdbcType=OTHER}, #{q24,jdbcType=OTHER}, #{q25,jdbcType=OTHER}, #{q26,jdbcType=OTHER}, 
+      #{joinid,jdbcType=OTHER}, #{timetaken,jdbcType=OTHER}, #{submittime,jdbcType=OTHER}, 
+      #{totalvalue,jdbcType=OTHER}, #{activity,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ford.entity.user.FordUserinfoExam">
+    insert into FORD_USERINFO_EXAM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="openid != null">
+        OPENID,
+      </if>
+      <if test="q1 != null">
+        Q1,
+      </if>
+      <if test="q2 != null">
+        Q2,
+      </if>
+      <if test="q3 != null">
+        Q3,
+      </if>
+      <if test="q4 != null">
+        Q4,
+      </if>
+      <if test="q5 != null">
+        Q5,
+      </if>
+      <if test="q6 != null">
+        Q6,
+      </if>
+      <if test="q7 != null">
+        Q7,
+      </if>
+      <if test="q8 != null">
+        Q8,
+      </if>
+      <if test="q9 != null">
+        Q9,
+      </if>
+      <if test="q10 != null">
+        Q10,
+      </if>
+      <if test="q11 != null">
+        Q11,
+      </if>
+      <if test="q12 != null">
+        Q12,
+      </if>
+      <if test="q13 != null">
+        Q13,
+      </if>
+      <if test="q14 != null">
+        Q14,
+      </if>
+      <if test="q15 != null">
+        Q15,
+      </if>
+      <if test="q16 != null">
+        Q16,
+      </if>
+      <if test="q17 != null">
+        Q17,
+      </if>
+      <if test="q18 != null">
+        Q18,
+      </if>
+      <if test="q19 != null">
+        Q19,
+      </if>
+      <if test="q20 != null">
+        Q20,
+      </if>
+      <if test="q21 != null">
+        Q21,
+      </if>
+      <if test="q22 != null">
+        Q22,
+      </if>
+      <if test="q23 != null">
+        Q23,
+      </if>
+      <if test="q24 != null">
+        Q24,
+      </if>
+      <if test="q25 != null">
+        Q25,
+      </if>
+      <if test="q26 != null">
+        Q26,
+      </if>
+      <if test="joinid != null">
+        JOINID,
+      </if>
+      <if test="timetaken != null">
+        TIMETAKEN,
+      </if>
+      <if test="submittime != null">
+        SUBMITTIME,
+      </if>
+      <if test="totalvalue != null">
+        TOTALVALUE,
+      </if>
+      <if test="activity != null">
+        ACTIVITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=OTHER},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=OTHER},
+      </if>
+      <if test="q1 != null">
+        #{q1,jdbcType=OTHER},
+      </if>
+      <if test="q2 != null">
+        #{q2,jdbcType=OTHER},
+      </if>
+      <if test="q3 != null">
+        #{q3,jdbcType=OTHER},
+      </if>
+      <if test="q4 != null">
+        #{q4,jdbcType=OTHER},
+      </if>
+      <if test="q5 != null">
+        #{q5,jdbcType=OTHER},
+      </if>
+      <if test="q6 != null">
+        #{q6,jdbcType=OTHER},
+      </if>
+      <if test="q7 != null">
+        #{q7,jdbcType=OTHER},
+      </if>
+      <if test="q8 != null">
+        #{q8,jdbcType=OTHER},
+      </if>
+      <if test="q9 != null">
+        #{q9,jdbcType=OTHER},
+      </if>
+      <if test="q10 != null">
+        #{q10,jdbcType=OTHER},
+      </if>
+      <if test="q11 != null">
+        #{q11,jdbcType=OTHER},
+      </if>
+      <if test="q12 != null">
+        #{q12,jdbcType=OTHER},
+      </if>
+      <if test="q13 != null">
+        #{q13,jdbcType=OTHER},
+      </if>
+      <if test="q14 != null">
+        #{q14,jdbcType=OTHER},
+      </if>
+      <if test="q15 != null">
+        #{q15,jdbcType=OTHER},
+      </if>
+      <if test="q16 != null">
+        #{q16,jdbcType=OTHER},
+      </if>
+      <if test="q17 != null">
+        #{q17,jdbcType=OTHER},
+      </if>
+      <if test="q18 != null">
+        #{q18,jdbcType=OTHER},
+      </if>
+      <if test="q19 != null">
+        #{q19,jdbcType=OTHER},
+      </if>
+      <if test="q20 != null">
+        #{q20,jdbcType=OTHER},
+      </if>
+      <if test="q21 != null">
+        #{q21,jdbcType=OTHER},
+      </if>
+      <if test="q22 != null">
+        #{q22,jdbcType=OTHER},
+      </if>
+      <if test="q23 != null">
+        #{q23,jdbcType=OTHER},
+      </if>
+      <if test="q24 != null">
+        #{q24,jdbcType=OTHER},
+      </if>
+      <if test="q25 != null">
+        #{q25,jdbcType=OTHER},
+      </if>
+      <if test="q26 != null">
+        #{q26,jdbcType=OTHER},
+      </if>
+      <if test="joinid != null">
+        #{joinid,jdbcType=OTHER},
+      </if>
+      <if test="timetaken != null">
+        #{timetaken,jdbcType=OTHER},
+      </if>
+      <if test="submittime != null">
+        #{submittime,jdbcType=OTHER},
+      </if>
+      <if test="totalvalue != null">
+        #{totalvalue,jdbcType=OTHER},
+      </if>
+      <if test="activity != null">
+        #{activity,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ford.entity.user.FordUserinfoExamExample" resultType="java.lang.Long">
+    select count(*) from FORD_USERINFO_EXAM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update FORD_USERINFO_EXAM
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=OTHER},
+      </if>
+      <if test="record.openid != null">
+        OPENID = #{record.openid,jdbcType=OTHER},
+      </if>
+      <if test="record.q1 != null">
+        Q1 = #{record.q1,jdbcType=OTHER},
+      </if>
+      <if test="record.q2 != null">
+        Q2 = #{record.q2,jdbcType=OTHER},
+      </if>
+      <if test="record.q3 != null">
+        Q3 = #{record.q3,jdbcType=OTHER},
+      </if>
+      <if test="record.q4 != null">
+        Q4 = #{record.q4,jdbcType=OTHER},
+      </if>
+      <if test="record.q5 != null">
+        Q5 = #{record.q5,jdbcType=OTHER},
+      </if>
+      <if test="record.q6 != null">
+        Q6 = #{record.q6,jdbcType=OTHER},
+      </if>
+      <if test="record.q7 != null">
+        Q7 = #{record.q7,jdbcType=OTHER},
+      </if>
+      <if test="record.q8 != null">
+        Q8 = #{record.q8,jdbcType=OTHER},
+      </if>
+      <if test="record.q9 != null">
+        Q9 = #{record.q9,jdbcType=OTHER},
+      </if>
+      <if test="record.q10 != null">
+        Q10 = #{record.q10,jdbcType=OTHER},
+      </if>
+      <if test="record.q11 != null">
+        Q11 = #{record.q11,jdbcType=OTHER},
+      </if>
+      <if test="record.q12 != null">
+        Q12 = #{record.q12,jdbcType=OTHER},
+      </if>
+      <if test="record.q13 != null">
+        Q13 = #{record.q13,jdbcType=OTHER},
+      </if>
+      <if test="record.q14 != null">
+        Q14 = #{record.q14,jdbcType=OTHER},
+      </if>
+      <if test="record.q15 != null">
+        Q15 = #{record.q15,jdbcType=OTHER},
+      </if>
+      <if test="record.q16 != null">
+        Q16 = #{record.q16,jdbcType=OTHER},
+      </if>
+      <if test="record.q17 != null">
+        Q17 = #{record.q17,jdbcType=OTHER},
+      </if>
+      <if test="record.q18 != null">
+        Q18 = #{record.q18,jdbcType=OTHER},
+      </if>
+      <if test="record.q19 != null">
+        Q19 = #{record.q19,jdbcType=OTHER},
+      </if>
+      <if test="record.q20 != null">
+        Q20 = #{record.q20,jdbcType=OTHER},
+      </if>
+      <if test="record.q21 != null">
+        Q21 = #{record.q21,jdbcType=OTHER},
+      </if>
+      <if test="record.q22 != null">
+        Q22 = #{record.q22,jdbcType=OTHER},
+      </if>
+      <if test="record.q23 != null">
+        Q23 = #{record.q23,jdbcType=OTHER},
+      </if>
+      <if test="record.q24 != null">
+        Q24 = #{record.q24,jdbcType=OTHER},
+      </if>
+      <if test="record.q25 != null">
+        Q25 = #{record.q25,jdbcType=OTHER},
+      </if>
+      <if test="record.q26 != null">
+        Q26 = #{record.q26,jdbcType=OTHER},
+      </if>
+      <if test="record.joinid != null">
+        JOINID = #{record.joinid,jdbcType=OTHER},
+      </if>
+      <if test="record.timetaken != null">
+        TIMETAKEN = #{record.timetaken,jdbcType=OTHER},
+      </if>
+      <if test="record.submittime != null">
+        SUBMITTIME = #{record.submittime,jdbcType=OTHER},
+      </if>
+      <if test="record.totalvalue != null">
+        TOTALVALUE = #{record.totalvalue,jdbcType=OTHER},
+      </if>
+      <if test="record.activity != null">
+        ACTIVITY = #{record.activity,jdbcType=OTHER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update FORD_USERINFO_EXAM
+    set ID = #{record.id,jdbcType=OTHER},
+      OPENID = #{record.openid,jdbcType=OTHER},
+      Q1 = #{record.q1,jdbcType=OTHER},
+      Q2 = #{record.q2,jdbcType=OTHER},
+      Q3 = #{record.q3,jdbcType=OTHER},
+      Q4 = #{record.q4,jdbcType=OTHER},
+      Q5 = #{record.q5,jdbcType=OTHER},
+      Q6 = #{record.q6,jdbcType=OTHER},
+      Q7 = #{record.q7,jdbcType=OTHER},
+      Q8 = #{record.q8,jdbcType=OTHER},
+      Q9 = #{record.q9,jdbcType=OTHER},
+      Q10 = #{record.q10,jdbcType=OTHER},
+      Q11 = #{record.q11,jdbcType=OTHER},
+      Q12 = #{record.q12,jdbcType=OTHER},
+      Q13 = #{record.q13,jdbcType=OTHER},
+      Q14 = #{record.q14,jdbcType=OTHER},
+      Q15 = #{record.q15,jdbcType=OTHER},
+      Q16 = #{record.q16,jdbcType=OTHER},
+      Q17 = #{record.q17,jdbcType=OTHER},
+      Q18 = #{record.q18,jdbcType=OTHER},
+      Q19 = #{record.q19,jdbcType=OTHER},
+      Q20 = #{record.q20,jdbcType=OTHER},
+      Q21 = #{record.q21,jdbcType=OTHER},
+      Q22 = #{record.q22,jdbcType=OTHER},
+      Q23 = #{record.q23,jdbcType=OTHER},
+      Q24 = #{record.q24,jdbcType=OTHER},
+      Q25 = #{record.q25,jdbcType=OTHER},
+      Q26 = #{record.q26,jdbcType=OTHER},
+      JOINID = #{record.joinid,jdbcType=OTHER},
+      TIMETAKEN = #{record.timetaken,jdbcType=OTHER},
+      SUBMITTIME = #{record.submittime,jdbcType=OTHER},
+      TOTALVALUE = #{record.totalvalue,jdbcType=OTHER},
+      ACTIVITY = #{record.activity,jdbcType=OTHER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
