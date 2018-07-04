@@ -78,7 +78,7 @@ public class ExhibitionCotroller {
 		// 抽奖
 		int i = (int) (Math.random() * 100 + 1);
 		try {
-			if (i <= 10) {
+			if (i <= 20) {
 				Map<String, Object> map = new HashMap<>();
 				map.put("id", fordExhibitionUserinfo.getId());
 				map.put("iswin", "1");

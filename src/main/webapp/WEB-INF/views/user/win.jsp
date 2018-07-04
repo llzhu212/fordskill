@@ -13,7 +13,7 @@
 	*{padding: 0;margin: 0;font-size: .14rem;font-family: "Microsoft YaHei","Helvetica Neue","Hiragino Sans GB",Arial,sans-serif;}
 	html,body{height: 100%;}
 	input,button,select{outline: none;}
-	.container{min-height: 100%;max-width: 750px;margin: 0 auto;background: no-repeat center 0;background-size: cover;}
+	.container{min-height: 100%;max-width: 750px;margin: 0 auto;background: no-repeat center 0;background-size: 100% 100%;}
 	.flex-box{display: flex;}
 	.flex1{flex: 1;}
 	.logo{padding: .15rem .15rem;font-size: .16rem;}
@@ -150,8 +150,12 @@ var fts;
 	}
 	
 })();
+
+var isOk = $("#iswin").val();
 var gua = 1,re = 2;  // 可设置刮奖次数
+
 var imgSrc = '${basepath}/static/img/a1.png';
+var imgSrc2 = '${basepath}/static/img/a3.png';
 
 function showdiv() { 
 	 document.getElementById("show").style.display ="block";
@@ -217,7 +221,6 @@ function bodys(height,width){
                     return false;
                 }*/
                 //活动开启后,判断用户的积分是否满5分
-                var isOk = $("#iswin").val();
                 if(isOk == 1){//成功
                     $(".temp").eq(1).fadeIn(300).siblings('.temp').hide();
                 }else {//失败
@@ -260,7 +263,11 @@ function bodys(height,width){
 		canvas.addEventListener('mousemove', eventMove);  		
 	});
 	
-	img.src = imgSrc;
+	if(isOk == 1){
+		img.src = imgSrc;
+	}else{
+		img.src = imgSrc2;
+	}
 	(document.body.style);
 }
 </script>	
