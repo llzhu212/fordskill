@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="line line-left"></span>
 					我要报名
 				</a>
-				<a href="#" class="button">
+				<a href="<%=path%>/login/toExam.action" class="button">
 					<span class="line line-top"></span>
 					<span class="line line-right"></span>
 					<span class="line line-bottom"></span>

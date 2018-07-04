@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<style type="text/css">
 		
  	.chongfu{
-		width:250px;
+		width:300px;
 		padding:20px;
 		padding-top:40px;
 		background-color:rgba(0,0,0,0.5);

@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>长安福特二手车技能大赛</title>
  <style>
  	.chongfu{
-		width:250px;
+		width:300px;
 		padding:20px;
 		padding-top:40px;
 		background-color:rgba(0,0,0,0.5);

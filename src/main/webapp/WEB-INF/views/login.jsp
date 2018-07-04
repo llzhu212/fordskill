@@ -106,8 +106,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="layui-form-item" style="text-align: left;">
 					<input type="checkbox" class="layui-form-checkbox" 
 					checked="checked" value=""/>
-					<span style="color: white;">记住我</span>
-					<span  style="padding-left: 30px;color: red;">${msg}</span>
+					<span style="color: white;vertical-align: middle;">
+						记住我
+					</span>
+					<span  style="padding-left: 30px;color: red;vertical-align: middle;">${msg}</span>
 					</tr>
 				</div>
 	

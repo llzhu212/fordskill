@@ -99,4 +99,9 @@ public class LoginController {
 	public String toHome(HttpServletRequest request) throws Exception {
 			return "home";
 	}
+	
+	@RequestMapping(value ="/toExam")
+	public String toExam(HttpServletRequest request) throws Exception {
+			return "exam/examtip";
+	}
 }
