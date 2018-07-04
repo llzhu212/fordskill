@@ -87,9 +87,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-		<div class="login layui-anim layui-anim-up" style="height: 100px;">
-			<img width="30px" height="30px" src="../static/img/notice.png">&nbsp;&nbsp;
-			<span style="color: white;">您已经成功报名了，请勿重复报名</span>
+	<form name="loginForm" method="post" action="<%=path%>/login/login.action" >
+		<div class="login layui-anim layui-anim-up">
+			<div class="layui-form" action="" method="post">
+				<div class="layui-form-item">
+					<input type="text" id="account" lay-verify="required|account" 
+						maxlength="20" placeholder="请输入经销商代码" autocomplete="off" 
+						name="agentcode" value = "${loginUserVO.agentcode}"
+						autofocus="autofocus" class="layui-input" />
+				</div>
+				<div class="layui-form-item">
+					<input type="password" id="password" lay-verify="required" 
+					maxlength="20" placeholder="请输入密码" value = "${loginUserVO.password}"
+					name="password"
+					autocomplete="off" class="layui-input" />
+				</div>
+				<div class="layui-form-item" style="text-align: left;">
+					<input type="checkbox" class="layui-form-checkbox" 
+					checked="checked" value=""/>
+					<span style="color: white;">记住我</span>
+					<span  style="padding-left: 30px;color: red;">${msg}</span>
+					</tr>
+				</div>
+	
+				<button class="login_btn layui-btn layui-btn-radius layui-btn-normal" 
+				  type="submit" lay-filter="login">登录</button>
+			</div>
 		</div>
+	</form>
 </body>
 </html>
