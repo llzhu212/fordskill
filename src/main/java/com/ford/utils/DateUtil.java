@@ -1,7 +1,10 @@
 package com.ford.utils;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.hp.hpl.sparta.xpath.ThisNodeTest;
 
 public class DateUtil {
 
@@ -27,5 +30,24 @@ public class DateUtil {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		time = sdf.format(date);
 		return time;
+	}
+	
+	public static boolean compareToday(String time){
+		boolean flag = false;
+		Date date = new Date();
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			String currentTime = df.format(date);
+			Date date1 = df.parse(currentTime);
+			Date date2 = df.parse(time);
+			if (date1.getTime()>=date2.getTime()) {
+				flag = true;
+			}else if (date1.getTime()<date2.getTime()) {
+				flag = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 }
