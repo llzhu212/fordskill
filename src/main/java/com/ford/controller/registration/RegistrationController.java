@@ -119,4 +119,6 @@ public class RegistrationController {
 		
 		return "registration/success";
 	}
+	
+	
 }	
