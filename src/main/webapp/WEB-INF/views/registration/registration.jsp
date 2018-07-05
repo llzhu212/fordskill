@@ -394,8 +394,24 @@ function checkreg() {
 	return flag;
 }
 
-
+(function () {
+	var setFont = function () {
+		var wd = window.innerWidth>screen.width?screen.width: window.innerWidth;
+		var width = wd>750?750: wd;
+		var fts = width/3.75;//23.438
+		console.log("fts="+fts)
+		var agent = navigator.userAgent;
+		document.documentElement.style.fontSize = fts + 'px'
+	}
+	setFont();
+//	var window_width = window.innerWidth, calc_window_width;
+//	calc_window_width = window_width>750?750: window_width;
+//	document.documentElement.style.fontSize = calc_window_width/3.75 + 'px'
+	window.onresize=function () {
+		setFont();
+	}
+	
+})()	
 </script>
-
 </body>
 </html>

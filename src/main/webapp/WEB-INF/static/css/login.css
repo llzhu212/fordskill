@@ -160,12 +160,12 @@ p,h1,h2,h3,h4,h5,h6 {padding: 0; margin: 0;}
  	.regis{
 		width:350px;
 		padding:20px;
-		padding-top:20px;
+		padding-top:25px;
 		background-color:rgba(0,0,0,0.5);
 		border-radius:4px;
 		position:absolute;
 		left:3%;
-		top:10%;
+		top:12%;
 		z-index:99;
 		text-align:left;}
 		

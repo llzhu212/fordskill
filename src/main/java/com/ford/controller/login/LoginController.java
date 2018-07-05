@@ -1,5 +1,6 @@
 package com.ford.controller.login;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.metamodel.SetAttribute;
@@ -14,6 +15,7 @@ import com.ford.entity.login.LoginSessionVO;
 import com.ford.entity.login.LoginVO;
 import com.ford.entity.user.FordAgentinfo;
 import com.ford.service.login.ILoginService;
+import com.ford.utils.DateUtil;
 
 
 @Controller
@@ -32,6 +34,12 @@ public class LoginController {
 	 */
 	@RequestMapping(value ="/forwardLogin")
 	public String forwardLogin(HttpServletRequest request) throws Exception {
+		
+		//判断登录session
+		LoginSessionVO loginSessionVO = (LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
+		if(null!=loginSessionVO){
+			return "home";
+		}
 		/**
 		 * 判断openid
 		 */
@@ -103,5 +111,22 @@ public class LoginController {
 	@RequestMapping(value ="/toExam")
 	public String toExam(HttpServletRequest request) throws Exception {
 			return "exam/examtip";
+	}
+	
+	@RequestMapping(value ="/toExamScore")
+	public String toExamScore(HttpServletRequest request) throws Exception {
+			return "exam/examcore";
+	}
+	
+	@RequestMapping(value ="/toExamruwei")
+	public String toExamruwei(HttpServletRequest request) throws Exception {
+		//公布入围时间
+		String showdate = "2018-08-01 00:00:00";
+		//如果当前时间在公布时间前，可以查看
+		if(DateUtil.compareToday(showdate)){
+			return "exam/examruwei";
+		}else{
+			return "exam/ruweiearly";
+		}
 	}
 }
