@@ -77,6 +77,7 @@ public class ExhibitionCotroller {
 		}
 		// 抽奖
 		int i = (int) (Math.random() * 100 + 1);
+		log.error("电话号码:"+fordExhibitionUserinfo.getPhone()+"======抽奖号码；"+i);
 		try {
 			if (i <= 20) {
 				Map<String, Object> map = new HashMap<>();
@@ -109,6 +110,7 @@ public class ExhibitionCotroller {
 				}
 			}
 		} catch (Exception e) {
+			flag = false;
 			log.error("未中奖:" + e.getMessage());
 		}
 		if (flag) {

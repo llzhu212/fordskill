@@ -83,7 +83,7 @@
 </head>
 
 <body>
-	<div class="container" style="background-image: url(${basepath}/static/img/bg.jpg);">
+	<div class="container" style="background-image: url(${basepath}/static/img/P3.jpg);">
 		<div class="logo"><img src="${basepath}/static/img/abd_05.png" /><img src="${basepath}/static/img/abd_03.png"/></div>
 		<div><img src="${basepath}/static/img/abd_10.png" style="width: 2.87rem;margin: .108rem auto .23125rem;display: block;"/></div>
 		<div><img src="${basepath}/static/img/abd_14.png" style="width: 2.07rem;margin: 0 auto 0.325rem;display: block;"/></div>
@@ -142,9 +142,42 @@
 				</div>
 			</div>
 		</div>
+		<audio style="display: block !important; " id="bg-music" preload="auto" src="${basepath}/static/music/h5a.mp3" loop="loop"></audio>
 		<!--<img src="img/c1.png" style="position:absolute;bottom:0;left:0;width:100%"/>-->
 	</div>
 <script type="text/javascript">
+
+autoPlayMusic();
+var isP = true;
+
+function autoPlayMusic() {
+    // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+    function musicInBrowserHandler() {
+        musicPlay(true);
+        document.body.removeEventListener('touchstart', musicInBrowserHandler);
+    }
+    document.body.addEventListener('touchstart', musicInBrowserHandler);
+
+    // 自动播放音乐效果，解决微信自动播放问题
+    function musicInWeixinHandler() {
+        musicPlay(true);
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            musicPlay(true);
+        }, false);
+        document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+    }
+    document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+}
+function musicPlay(isPlay) {
+    var media = document.querySelector('#bg-music');
+    if (isPlay && media.paused) {
+        media.play();
+    }
+    if (!isPlay && !media.paused) {
+        media.pause();
+    }
+}	
+
 (function () {
 	var setFont = function () {
 		var wd = window.innerWidth>screen.width?screen.width: window.innerWidth;

@@ -39,7 +39,7 @@
 </head>
 
 <body>
-	<div class="container" style="background-image: url(${basepath}/static/img/bg.jpg);">
+	<div class="container" style="background-image: url(${basepath}/static/img/P3.jpg);">
 		<div class="logo"><img src="${basepath}/static/img/abd_05.png" /><img src="${basepath}/static/img/abd_03.png"/></div>
 		<div><img src="${basepath}/static/img/abd_10.png" style="width: 2.87rem;margin: .108rem auto 0;display: block;"/></div>
 		<!-- 刮奖 -->
@@ -80,13 +80,13 @@
 					<div>
 						<p class="name" style="font-size: .16rem;">抽奖规则：</p>
 						<p class="info">
-							1.每位用户限参与一次抽奖。中奖手机号码只可填写一次，不可重复领奖。</br>
-							2.报名电话必须正确填写，经销商会通过您留下的电话号码与您沟通参与活动以及领奖事宜，请注意报名资料有效准确。</br>
-							3.每位用户需在兑换奖品时提供与报名时一致的电话与姓名，否则无法兑奖。报名信息（电话、姓名）为中奖后的唯一兑奖凭证，必须真实填写，由现场工作人员核实后方可领奖。</br>
-							4.每位中奖用户需到活动现场意向经销商处进行奖品领取；中奖用户如未到现场，则视为自动放弃，不再补发奖品。</br>
-							5.更多活动详情咨询活动经销商。</br>
-							6.成功报名后才可获得有效抽奖资格，以报名名单为准，活动报名截止时间：2018年7月12日24时。</br>
-							7.长安福特保留对本活动的最终解释权。
+							1、每位用户限参与一次抽奖。中奖手机号码只可填写一次，不可重复领奖。</br>
+							2、报名电话必须正确填写，经销商会通过您留下的电话号码与您沟通参与活动以及领奖事宜，请注意报名资料有效准确。</br>
+							3、每位用户需在兑换奖品时提供与报名时一致的电话与姓名，否则无法兑奖。报名信息（电话、姓名）为中奖后的唯一兑奖凭证，必须真实填写，由现场工作人员核实后方可领奖。</br>
+							4、每位中奖用户需到活动现场意向经销商处进行奖品领取；中奖用户如未到现场，则视为自动放弃，不再补发奖品。</br>
+							5、更多活动详情咨询活动经销商。</br>
+							6、成功报名后才可获得有效抽奖资格，以报名名单为准，活动报名截止时间：2018年7月12日24时。</br>
+							7、长安福特保留对本活动的最终解释权。
 						</p>
 					</div>
 					<div style="font-size: .18rem;font-weight: bold;font-style: italic;color: #f00;margin: .1rem 0 .4rem;">信息如实填写，否则不能兑奖</div>
@@ -108,26 +108,27 @@
 					<div>
 						<p class="name" style="font-size: .16rem;">抽奖规则：</p>
 						<p class="info">
-							1.每位用户限参与一次抽奖。中奖手机号码只可填写一次，不可重复领奖。</br>
-							2.报名电话必须正确填写，经销商会通过您留下的电话号码与您沟通参与活动以及领奖事宜，请注意报名资料有效准确。</br>
-							3.每位用户需在兑换奖品时提供与报名时一致的电话与姓名，否则无法兑奖。报名信息（电话、姓名）为中奖后的唯一兑奖凭证，必须真实填写，由现场工作人员核实后方可领奖。</br>
-							4.每位中奖用户需到活动现场意向经销商处进行奖品领取；中奖用户如未到现场，则视为自动放弃，不再补发奖品。</br>
-							5.更多活动详情咨询活动经销商。</br>
-							6.成功报名后才可获得有效抽奖资格，以报名名单为准，活动报名截止时间：2018年7月12日24时。</br>
-							7.长安福特保留对本活动的最终解释权。
+							1、每位用户限参与一次抽奖。中奖手机号码只可填写一次，不可重复领奖。</br>
+							2、报名电话必须正确填写，经销商会通过您留下的电话号码与您沟通参与活动以及领奖事宜，请注意报名资料有效准确。</br>
+							3、每位用户需在兑换奖品时提供与报名时一致的电话与姓名，否则无法兑奖。报名信息（电话、姓名）为中奖后的唯一兑奖凭证，必须真实填写，由现场工作人员核实后方可领奖。</br>
+							4、每位中奖用户需到活动现场意向经销商处进行奖品领取；中奖用户如未到现场，则视为自动放弃，不再补发奖品。</br>
+							5、更多活动详情咨询活动经销商。</br>
+							6、成功报名后才可获得有效抽奖资格，以报名名单为准，活动报名截止时间：2018年7月12日24时。</br>
+							7、长安福特保留对本活动的最终解释权。
 						</p>
 					</div>
 					<div style="font-size: .18rem;font-weight: bold;font-style: italic;color: #f00;margin: .1rem 0 .4rem;">信息如实填写，否则不能兑奖</div>
 					<div style="text-align: center;padding-bottom: .4rem;">
-						<a class="home-btn" href="H5.html">返回主页</a>
+						<a class="home-btn" href="https://q.eqxiu.com/s/AQah4r9f">返回主页</a>
 					</div>
 				</div>
 			</div>
 		</div>	
-			
+			<audio style="display: block !important; " id="bg-music" preload="auto" src="${basepath}/static/music/h5a.mp3" loop="loop"></audio>
 		<!--<img src="img/c1.png" style="position:absolute;bottom:0;left:0;width:100%"/>-->
 	</div>
 	<input id="iswin" value="${winflag}" type="hidden"></input>
+
 <script type="text/javascript"  src="${basepath}/static/js/jquery-1.9.1.js"></script>
 <script type="text/javascript"> 
 	
@@ -153,6 +154,9 @@ var fts;
 
 var isOk = $("#iswin").val();
 var gua = 1,re = 2;  // 可设置刮奖次数
+
+autoPlayMusic();
+var isP = true;
 
 var imgSrc = '${basepath}/static/img/a1.png';
 var imgSrc2 = '${basepath}/static/img/a3.png';
@@ -270,6 +274,34 @@ function bodys(height,width){
 	}
 	(document.body.style);
 }
+
+function autoPlayMusic() {
+    // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+    function musicInBrowserHandler() {
+        musicPlay(true);
+        document.body.removeEventListener('touchstart', musicInBrowserHandler);
+    }
+    document.body.addEventListener('touchstart', musicInBrowserHandler);
+
+    // 自动播放音乐效果，解决微信自动播放问题
+    function musicInWeixinHandler() {
+        musicPlay(true);
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            musicPlay(true);
+        }, false);
+        document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+    }
+    document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+}
+function musicPlay(isPlay) {
+    var media = document.querySelector('#bg-music');
+    if (isPlay && media.paused) {
+        media.play();
+    }
+    if (!isPlay && !media.paused) {
+        media.pause();
+    }
+}	
 </script>	
 </body>
 </html>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ford.dao.exhibition.FordExhibitionUserinfoMapper">
   <resultMap id="BaseResultMap" type="com.ford.entity.exhibition.FordExhibitionUserinfo">
-    <result column="ID" jdbcType="OTHER" property="id" />
+    <id column="ID" jdbcType="OTHER" property="id" />
     <result column="NAME" jdbcType="OTHER" property="name" />
     <result column="PHONE" jdbcType="OTHER" property="phone" />
     <result column="CITY" jdbcType="OTHER" property="city" />
@@ -86,6 +86,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FORD_EXHIBITION_USERINFO
+    where ID = #{id,jdbcType=OTHER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FORD_EXHIBITION_USERINFO
+    where ID = #{id,jdbcType=OTHER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.ford.entity.exhibition.FordExhibitionUserinfoExample">
     delete from FORD_EXHIBITION_USERINFO
     <if test="_parameter != null">
@@ -206,5 +216,43 @@
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ford.entity.exhibition.FordExhibitionUserinfo">
+    update FORD_EXHIBITION_USERINFO
+    <set>
+      <if test="name != null">
+        NAME = #{name,jdbcType=OTHER},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=OTHER},
+      </if>
+      <if test="city != null">
+        CITY = #{city,jdbcType=OTHER},
+      </if>
+      <if test="supplier != null">
+        SUPPLIER = #{supplier,jdbcType=OTHER},
+      </if>
+      <if test="code != null">
+        CODE = #{code,jdbcType=OTHER},
+      </if>
+      <if test="iswin != null">
+        ISWIN = #{iswin,jdbcType=OTHER},
+      </if>
+      <if test="time != null">
+        TIME = #{time,jdbcType=OTHER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=OTHER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ford.entity.exhibition.FordExhibitionUserinfo">
+    update FORD_EXHIBITION_USERINFO
+    set NAME = #{name,jdbcType=OTHER},
+      PHONE = #{phone,jdbcType=OTHER},
+      CITY = #{city,jdbcType=OTHER},
+      SUPPLIER = #{supplier,jdbcType=OTHER},
+      CODE = #{code,jdbcType=OTHER},
+      ISWIN = #{iswin,jdbcType=OTHER},
+      TIME = #{time,jdbcType=OTHER}
+    where ID = #{id,jdbcType=OTHER}
   </update>
 </mapper>
