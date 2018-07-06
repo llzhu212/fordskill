@@ -1,5 +1,6 @@
 package com.ford.controller.login;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -47,9 +48,11 @@ public class LoginController {
 		String openid =(String) request.getParameter("openid"); 
 		//如果openid为空
 		if(null == openid || ""==openid){
-//			return "http://wx.e2capp.com/auth.ashx?serv_name=ershou&scope=snsapi_userinfo&i=13";
-			request.getSession().setAttribute("openid", "001");
-			return "login";
+			return "redirect:http://wx.e2capp.com/auth.ashx?serv_name=ershou&scope=snsapi_userinfo&i=14";
+//			Date date = new Date();
+//			SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmsss");
+//			openid = sdf.format(date);
+//			return "redirect:/login/forwardLogin.action?openid="+openid;
 		}else{
 			request.getSession().setAttribute("openid", openid);
 			return "login";
@@ -108,25 +111,5 @@ public class LoginController {
 			return "home";
 	}
 	
-	@RequestMapping(value ="/toExam")
-	public String toExam(HttpServletRequest request) throws Exception {
-			return "exam/examtip";
-	}
 	
-	@RequestMapping(value ="/toExamScore")
-	public String toExamScore(HttpServletRequest request) throws Exception {
-			return "exam/examcore";
-	}
-	
-	@RequestMapping(value ="/toExamruwei")
-	public String toExamruwei(HttpServletRequest request) throws Exception {
-		//公布入围时间
-		String showdate = "2018-08-01 00:00:00";
-		//如果当前时间在公布时间前，可以查看
-		if(DateUtil.compareToday(showdate)){
-			return "exam/examruwei";
-		}else{
-			return "exam/ruweiearly";
-		}
-	}
 }

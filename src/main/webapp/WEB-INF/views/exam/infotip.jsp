@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		border-radius:4px;
 		position:absolute;
 		left:50%;
-		top:48%;
+		top:50%;
 		margin:-150px 0 0 -150px;
 		z-index:99;
 		text-align:center}
@@ -30,15 +30,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div class="container" style="background-image: url(../static/img/bg3.jpg)">
-		<div class="chongfu layui-anim layui-anim-up" style="text-align: center;">
-			<img width="30px" height="30px" src="../static/img/notice.png">&nbsp;&nbsp;
-			<span style="color: white;font-size: 20px;font-weight: 700;
-				vertical-align: middle;">
-				 来早了！</span>
-				<br/><br/>
-			<span style="color: white;">X月X日才公布分站赛入围名单哦</span>
+		<div class="chongfu layui-anim layui-anim-up" >
+			<img width="30px" height="30px" src="../static/img/notice.png">&nbsp;&nbsp; 
+			<span style="color: white;">${msg}</span>
 			<button class="layui-btn layui-btn-radius layui-btn-normal"  
-			style="width: 50%; margin-top: 40px;" onclick="javascript:window.location.href='<%=path%>/login/toHome.action'"
+			style="width: 50%; margin-top: 40px;"
+			 onclick="javascript:window.location.href='<%=path%>/login/toHome.action'"
 					  type="submit" lay-filter="login">确定</button>
 		</div>
 	</div>
