@@ -104,6 +104,13 @@ public class FordExamController {
 			model.addAttribute("msg", "您还没有报名哦！");
 			return "exam/infotip";
 		}
+		//判断是否是报名的微信号
+		FordRegistration fordRegistration = list.get(0);
+		if(!loginSessionVO.getOpenid().equals(fordRegistration.getOpenid())){
+			//返回
+			model.addAttribute("msg", "请使用报名的微信号答题！");
+			return "exam/infotip";
+		}
 		
 		if (!DateUtil.compareToday(ExampleComment.EXAM_START_TIME)) {
 			//返回来早了，还没有开始界面
@@ -153,5 +160,11 @@ public class FordExamController {
 			model.addAttribute("msg", "X月X日才公布分站赛入围名单哦！");
 			return "exam/earlytip";
 		}
+	}
+	
+	
+	@RequestMapping(value ="/toExamSuc")
+	public String toExamSuc(HttpServletRequest request) throws Exception {
+			return "exam/exsuccess";
 	}
 }

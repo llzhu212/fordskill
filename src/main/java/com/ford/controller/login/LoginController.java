@@ -108,7 +108,11 @@ public class LoginController {
 	
 	@RequestMapping(value ="/toHome")
 	public String toHome(HttpServletRequest request) throws Exception {
-			return "home";
+		LoginSessionVO loginSessionVO =(LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
+		if(null == loginSessionVO){
+			return "redirect:/login/forwardLogin.action";
+		}
+		return "home";
 	}
 	
 	
