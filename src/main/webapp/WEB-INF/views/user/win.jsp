@@ -91,7 +91,7 @@
 					</div>
 					<div style="font-size: .18rem;font-weight: bold;font-style: italic;color: #f00;margin: .1rem 0 .4rem;">信息如实填写，否则不能兑奖</div>
 					<div style="text-align: center;padding-bottom: .6rem;">
-						<a class="home-btn" href="">返回主页</a>
+						<a class="home-btn" href="https://q.eqxiu.com/s/AQah4r9f">返回主页</a>
 					</div>
 				</div>
 			</div>
