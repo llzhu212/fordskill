@@ -1,5 +1,7 @@
 package com.ford.controller.login;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.metamodel.SetAttribute;
@@ -14,6 +16,7 @@ import com.ford.entity.login.LoginSessionVO;
 import com.ford.entity.login.LoginVO;
 import com.ford.entity.user.FordAgentinfo;
 import com.ford.service.login.ILoginService;
+import com.ford.utils.DateUtil;
 
 
 @Controller
@@ -32,6 +35,12 @@ public class LoginController {
 	 */
 	@RequestMapping(value ="/forwardLogin")
 	public String forwardLogin(HttpServletRequest request) throws Exception {
+		
+		//判断登录session
+		LoginSessionVO loginSessionVO = (LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
+		if(null!=loginSessionVO){
+			return "home";
+		}
 		/**
 		 * 判断openid
 		 */
@@ -39,9 +48,11 @@ public class LoginController {
 		String openid =(String) request.getParameter("openid"); 
 		//如果openid为空
 		if(null == openid || ""==openid){
-//			return "http://wx.e2capp.com/auth.ashx?serv_name=ershou&scope=snsapi_userinfo&i=13";
-			request.getSession().setAttribute("openid", "001");
-			return "login";
+			return "redirect:http://wx.e2capp.com/auth.ashx?serv_name=ershou&scope=snsapi_userinfo&i=14";
+//			Date date = new Date();
+//			SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmsss");
+//			openid = sdf.format(date);
+//			return "redirect:/login/forwardLogin.action?openid="+openid;
 		}else{
 			request.getSession().setAttribute("openid", openid);
 			return "login";
@@ -97,6 +108,12 @@ public class LoginController {
 	
 	@RequestMapping(value ="/toHome")
 	public String toHome(HttpServletRequest request) throws Exception {
-			return "home";
+		LoginSessionVO loginSessionVO =(LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
+		if(null == loginSessionVO){
+			return "redirect:/login/forwardLogin.action";
+		}
+		return "home";
 	}
+	
+	
 }

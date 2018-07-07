@@ -52,6 +52,10 @@ public class RegistrationController {
 		//获取登录session
 		LoginSessionVO loginSessionVO =(LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
 		
+		if(null == loginSessionVO){
+			return "redirect:/login/forwardLogin.action";
+		}
+		//经销商编码已经报名
 		FordRegistrationExample fordRegistrationExample = new FordRegistrationExample();
 		Criteria criteria = fordRegistrationExample.createCriteria();
 		criteria.andCodeEqualTo(loginSessionVO.getAgentcode());
@@ -60,6 +64,16 @@ public class RegistrationController {
 			//返回
 			return "registration/chongfu";
 		}
+		//微信号已经报名
+		FordRegistrationExample fordRegistrationExample1 = new FordRegistrationExample();
+		Criteria criteria1 = fordRegistrationExample1.createCriteria();
+		criteria1.andOpenidEqualTo(loginSessionVO.getOpenid());
+		List<FordRegistration> list1 = fordRegistrationService.findFordRegist(fordRegistrationExample1);
+		if(null != list1 && list1.size()>0){
+			//返回
+			return "registration/chongfu";
+		}
+		
 		FordAgentinfoExample fordAgentinfoExample = new FordAgentinfoExample();
 		com.ford.entity.user.FordAgentinfoExample.Criteria criteriaagent = 
 				fordAgentinfoExample.createCriteria();
@@ -86,6 +100,9 @@ public class RegistrationController {
 			FordRegistrationUsers fordRegistrationUsers,FordAgentinfo agent) throws Exception {
 		//获取登录session
 		LoginSessionVO loginSessionVO =(LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
+		if(null == loginSessionVO){
+			return "redirect:/login/forwardLogin.action";
+		}
 		//判断是否已经报名
 		FordRegistrationExample fordRegistrationExample = new FordRegistrationExample();
 		Criteria criteria = fordRegistrationExample.createCriteria();
@@ -95,10 +112,20 @@ public class RegistrationController {
 			//返回
 			return "registration/chongfu";
 		}
+		
+		//微信号已经报名
+		FordRegistrationExample fordRegistrationExample1 = new FordRegistrationExample();
+		Criteria criteria1 = fordRegistrationExample1.createCriteria();
+		criteria1.andOpenidEqualTo(loginSessionVO.getOpenid());
+		List<FordRegistration> list1 = fordRegistrationService.findFordRegist(fordRegistrationExample1);
+		if(null != list1 && list1.size()>0){
+			//返回
+			return "registration/chongfu";
+		}
 		//添加报名信息
 		FordRegistration regis = new FordRegistration();
 		regis.setAgentname(agent.getName());
-		regis.setCode(agent.getCode());
+		regis.setCode(loginSessionVO.getAgentcode());
 		regis.setOpenid(loginSessionVO.getOpenid());
 		regis.setRegion(agent.getRegion());
 		regis.setTime(DateUtil.getCurrentTime());
@@ -109,7 +136,7 @@ public class RegistrationController {
 		
 		for (int i = 0; i < fordRegistrationUsers.getUsers().size(); i++) {
 			FordRegistrationUserinfo user = fordRegistrationUsers.getUsers().get(i);
-			user.setCode(agent.getCode());
+			user.setCode(loginSessionVO.getAgentcode());
 			user.setName(user.getName());
 			user.setPhone(user.getPhone());
 			user.setSex(user.getSex());
@@ -119,4 +146,6 @@ public class RegistrationController {
 		
 		return "registration/success";
 	}
+	
+	
 }	

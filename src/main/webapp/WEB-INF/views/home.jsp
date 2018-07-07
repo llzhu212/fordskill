@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
+	<div class="container" style="background-image: url(../static/img/bg1.jpg)">
 	<div class="content">
 				<a href="<%=path%>/registration/forwardRegistration.action" class="button">
 					<span class="line line-top"></span>
@@ -28,21 +29,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="line line-left"></span>
 					我要报名
 				</a>
-				<a href="#" class="button">
+				<a href="<%=path%>/exam/toExam.action" class="button">
 					<span class="line line-top"></span>
 					<span class="line line-right"></span>
 					<span class="line line-bottom"></span>
 					<span class="line line-left"></span>
 					我要考试
 				</a>
-				<a href="#" class="button">
+				<a href="<%=path%>/exam/toExamScore.action" class="button">
 					<span class="line line-top"></span>
 					<span class="line line-right"></span>
 					<span class="line line-bottom"></span>
 					<span class="line line-left"></span>
 					查看成绩
 				</a>
-				<a href="#" class="button">
+				<a href="<%=path%>/exam/toExamruwei.action" class="button">
 					<span class="line line-top"></span>
 					<span class="line line-right"></span>
 					<span class="line line-bottom"></span>
@@ -50,5 +51,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					入围名单
 				</a>
 		</div>
+	</div>
 </body>
 </html>

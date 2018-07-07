@@ -217,6 +217,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 </head>
 
 <body sroll="no" onclick="onload">
+<div class="container" style="background-image: url(../static/img/bg3.jpg)">
 <form name="form1"  action="<%=path%>/registration/addRegistration.action" method="post" onSubmit="return checkreg()">
 	<div class="regis layui-anim layui-anim-up">
 	<div class="div_f">
@@ -346,7 +347,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 	<button id="submit" type="submit" class="btn_1" >提交</button>
 	</div>
 </form>
-
+</div>
 
 <script type="text/javascript">
 function checkreg() {
@@ -393,8 +394,24 @@ function checkreg() {
 	return flag;
 }
 
-
+(function () {
+	var setFont = function () {
+		var wd = window.innerWidth>screen.width?screen.width: window.innerWidth;
+		var width = wd>750?750: wd;
+		var fts = width/3.75;//23.438
+		console.log("fts="+fts)
+		var agent = navigator.userAgent;
+		document.documentElement.style.fontSize = fts + 'px'
+	}
+	setFont();
+//	var window_width = window.innerWidth, calc_window_width;
+//	calc_window_width = window_width>750?750: window_width;
+//	document.documentElement.style.fontSize = calc_window_width/3.75 + 'px'
+	window.onresize=function () {
+		setFont();
+	}
+	
+})()	
 </script>
-
 </body>
 </html>
