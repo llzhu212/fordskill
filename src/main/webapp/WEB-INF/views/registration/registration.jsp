@@ -219,7 +219,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 <body sroll="no" onclick="onload">
 <div class="container" style="background-image: url(../static/img/bg3.jpg)">
 <form name="form1"  action="<%=path%>/registration/addRegistration.action" method="post" onSubmit="return checkreg()">
-	<div class="regis layui-anim layui-anim-up">
+	<div class="regis layui-anim layui-anim-up" id="reg">
 	<div class="div_f">
 		<div class="div_col" id="me">
 			<div class="div_c_l"><span>经销商</span>
@@ -350,6 +350,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 </div>
 
 <script type="text/javascript">
+
 function checkreg() {
 	var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
 	var flag = true;
@@ -402,6 +403,10 @@ function checkreg() {
 		console.log("fts="+fts)
 		var agent = navigator.userAgent;
 		document.documentElement.style.fontSize = fts + 'px'
+		
+		if(wd>400){
+			document.getElementById("reg").style.width='385px';
+		}
 	}
 	setFont();
 //	var window_width = window.innerWidth, calc_window_width;
