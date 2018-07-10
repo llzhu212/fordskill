@@ -10,6 +10,16 @@ public class CallBackVO {
 	
 	private String openid;
     
+	private String sojumpparm;
+	
+	public String getSojumpparm() {
+		return sojumpparm;
+	}
+
+	public void setSojumpparm(String sojumpparm) {
+		this.sojumpparm = sojumpparm;
+	}
+
 	public String getQ26() {
 		return q26;
 	}

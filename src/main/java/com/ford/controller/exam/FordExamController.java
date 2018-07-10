@@ -1,6 +1,8 @@
 package com.ford.controller.exam;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ford.controller.exam.util.CallBackUtil;
 import com.ford.controller.exam.vo.CallBackVO;
 import com.ford.controller.exam.vo.CallVOUtil;
 import com.ford.controller.user.comment.ExampleComment;
@@ -69,11 +72,14 @@ public class FordExamController {
 	@RequestMapping(value = "/callback.act")
 	public void callback(HttpServletRequest request){
 		CallVOUtil callVOUtil = new CallVOUtil();
+		CallBackUtil callBackUtil = new CallBackUtil();
 		try {
 			String json = IOUtils.toString(request.getInputStream());
 			log.error("===回调json串===="+json);
 			ObjectMapper om = new ObjectMapper();
-			CallBackVO callBackVO = om.readValue(json, CallBackVO.class);
+			Map<String, Object> map = new HashMap<String,Object>();
+			map = om.readValue(json, Map.class);
+			CallBackVO callBackVO = callBackUtil.map2CallBackVO(map);
 			FordUserinfoExam fordUserinfoExam = callVOUtil.callVO2Exam(callBackVO);
 			fordUserExamService.addFordUserExam(fordUserinfoExam);
 		} catch (Exception e) {
@@ -112,7 +118,6 @@ public class FordExamController {
 			model.addAttribute("msg", "请使用报名的微信号答题！");
 			return "exam/infotip";
 		}
-		
 		//判断是否已经报名
 		FordUserinfoExamExample fordUserinfoExamExample = new FordUserinfoExamExample();
 		com.ford.entity.user.FordUserinfoExamExample.Criteria examcri = fordUserinfoExamExample.createCriteria();

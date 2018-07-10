@@ -36,6 +36,7 @@ public class CallVOUtil {
 		fordUserinfoExam.setSubmittime(callBackVO.getSubmittime());
 		fordUserinfoExam.setTimetaken(callBackVO.getTimetaken());
 		fordUserinfoExam.setTotalvalue(callBackVO.getTotalvalue());
+		fordUserinfoExam.setSojumpparm(callBackVO.getSojumpparm());
 		return fordUserinfoExam;
 	}
 }

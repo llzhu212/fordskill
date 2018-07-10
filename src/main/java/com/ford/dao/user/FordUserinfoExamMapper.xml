@@ -35,6 +35,7 @@
     <result column="SUBMITTIME" jdbcType="OTHER" property="submittime" />
     <result column="TOTALVALUE" jdbcType="OTHER" property="totalvalue" />
     <result column="ACTIVITY" jdbcType="OTHER" property="activity" />
+    <result column="SOJUMPPARM" jdbcType="OTHER" property="sojumpparm" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -97,7 +98,7 @@
   <sql id="Base_Column_List">
     ID, OPENID, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15, Q16, 
     Q17, Q18, Q19, Q20, Q21, Q22, Q23, Q24, Q25, Q26, JOINID, TIMETAKEN, SUBMITTIME, 
-    TOTALVALUE, ACTIVITY
+    TOTALVALUE, ACTIVITY, SOJUMPPARM
   </sql>
   <select id="selectByExample" parameterType="com.ford.entity.user.FordUserinfoExamExample" resultMap="BaseResultMap">
     select
@@ -128,7 +129,8 @@
       Q19, Q20, Q21, Q22, 
       Q23, Q24, Q25, Q26, 
       JOINID, TIMETAKEN, SUBMITTIME, 
-      TOTALVALUE, ACTIVITY)
+      TOTALVALUE, ACTIVITY, SOJUMPPARM
+      )
     values (#{id,jdbcType=OTHER}, #{openid,jdbcType=OTHER}, #{q1,jdbcType=OTHER}, #{q2,jdbcType=OTHER}, 
       #{q3,jdbcType=OTHER}, #{q4,jdbcType=OTHER}, #{q5,jdbcType=OTHER}, #{q6,jdbcType=OTHER}, 
       #{q7,jdbcType=OTHER}, #{q8,jdbcType=OTHER}, #{q9,jdbcType=OTHER}, #{q10,jdbcType=OTHER}, 
@@ -137,7 +139,8 @@
       #{q19,jdbcType=OTHER}, #{q20,jdbcType=OTHER}, #{q21,jdbcType=OTHER}, #{q22,jdbcType=OTHER}, 
       #{q23,jdbcType=OTHER}, #{q24,jdbcType=OTHER}, #{q25,jdbcType=OTHER}, #{q26,jdbcType=OTHER}, 
       #{joinid,jdbcType=OTHER}, #{timetaken,jdbcType=OTHER}, #{submittime,jdbcType=OTHER}, 
-      #{totalvalue,jdbcType=OTHER}, #{activity,jdbcType=OTHER})
+      #{totalvalue,jdbcType=OTHER}, #{activity,jdbcType=OTHER}, #{sojumpparm,jdbcType=OTHER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ford.entity.user.FordUserinfoExam">
     insert into FORD_USERINFO_EXAM
@@ -241,6 +244,9 @@
       <if test="activity != null">
         ACTIVITY,
       </if>
+      <if test="sojumpparm != null">
+        SOJUMPPARM,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -341,6 +347,9 @@
       </if>
       <if test="activity != null">
         #{activity,jdbcType=OTHER},
+      </if>
+      <if test="sojumpparm != null">
+        #{sojumpparm,jdbcType=OTHER},
       </if>
     </trim>
   </insert>
@@ -452,6 +461,9 @@
       <if test="record.activity != null">
         ACTIVITY = #{record.activity,jdbcType=OTHER},
       </if>
+      <if test="record.sojumpparm != null">
+        SOJUMPPARM = #{record.sojumpparm,jdbcType=OTHER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -491,7 +503,8 @@
       TIMETAKEN = #{record.timetaken,jdbcType=OTHER},
       SUBMITTIME = #{record.submittime,jdbcType=OTHER},
       TOTALVALUE = #{record.totalvalue,jdbcType=OTHER},
-      ACTIVITY = #{record.activity,jdbcType=OTHER}
+      ACTIVITY = #{record.activity,jdbcType=OTHER},
+      SOJUMPPARM = #{record.sojumpparm,jdbcType=OTHER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
