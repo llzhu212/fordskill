@@ -2413,6 +2413,76 @@ public class FordUserinfoExamExample {
             addCriterion("ACTIVITY not between", value1, value2, "activity");
             return (Criteria) this;
         }
+
+        public Criteria andSojumpparmIsNull() {
+            addCriterion("SOJUMPPARM is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmIsNotNull() {
+            addCriterion("SOJUMPPARM is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmEqualTo(String value) {
+            addCriterion("SOJUMPPARM =", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmNotEqualTo(String value) {
+            addCriterion("SOJUMPPARM <>", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmGreaterThan(String value) {
+            addCriterion("SOJUMPPARM >", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmGreaterThanOrEqualTo(String value) {
+            addCriterion("SOJUMPPARM >=", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmLessThan(String value) {
+            addCriterion("SOJUMPPARM <", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmLessThanOrEqualTo(String value) {
+            addCriterion("SOJUMPPARM <=", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmLike(String value) {
+            addCriterion("SOJUMPPARM like", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmNotLike(String value) {
+            addCriterion("SOJUMPPARM not like", value, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmIn(List<String> values) {
+            addCriterion("SOJUMPPARM in", values, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmNotIn(List<String> values) {
+            addCriterion("SOJUMPPARM not in", values, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmBetween(String value1, String value2) {
+            addCriterion("SOJUMPPARM between", value1, value2, "sojumpparm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSojumpparmNotBetween(String value1, String value2) {
+            addCriterion("SOJUMPPARM not between", value1, value2, "sojumpparm");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
