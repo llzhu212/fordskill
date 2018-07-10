@@ -20,6 +20,7 @@ import com.ford.entity.skill.FordRegistration;
 import com.ford.entity.skill.FordRegistrationExample;
 import com.ford.entity.skill.FordRegistrationExample.Criteria;
 import com.ford.entity.user.FordUserinfoExam;
+import com.ford.entity.user.FordUserinfoExamExample;
 import com.ford.service.skill.IFordRegistrationService;
 import com.ford.service.user.IFordUserExamService;
 import com.ford.utils.DateUtil;
@@ -109,6 +110,17 @@ public class FordExamController {
 		if(!loginSessionVO.getOpenid().equals(fordRegistration.getOpenid())){
 			//返回
 			model.addAttribute("msg", "请使用报名的微信号答题！");
+			return "exam/infotip";
+		}
+		
+		//判断是否已经报名
+		FordUserinfoExamExample fordUserinfoExamExample = new FordUserinfoExamExample();
+		com.ford.entity.user.FordUserinfoExamExample.Criteria examcri = fordUserinfoExamExample.createCriteria();
+		examcri.andOpenidEqualTo(loginSessionVO.getOpenid());
+		List<FordUserinfoExam> exams = fordUserExamService.findFordExams(fordUserinfoExamExample);
+		if(null != exams && exams.size()>0){
+			//返回
+			model.addAttribute("msg", "您已经考完试，不能再考试了！");
 			return "exam/infotip";
 		}
 		

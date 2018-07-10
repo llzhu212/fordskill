@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.ford.dao.base.CallMapper;
 import com.ford.dao.user.FordUserinfoExamMapper;
 import com.ford.entity.login.LoginVO;
+import com.ford.entity.skill.FordRegistration;
+import com.ford.entity.skill.FordRegistrationExample;
 import com.ford.entity.user.FordUserinfoExam;
 import com.ford.entity.user.FordUserinfoExamExample;
 import com.ford.entity.user.FordUserinfoExamExample.Criteria;
@@ -44,4 +46,12 @@ public class FordUserExamServiceImpl implements IFordUserExamService{
 		List<FordUserinfoExam> list = fordUserinfoExamMapper.selectByExample(fordUserinfoExamExample);
 		return list;
 	}
+	
+	
+	@Override
+	public List<FordUserinfoExam> findFordExams(FordUserinfoExamExample fordUserinfoExamExample)
+			throws Exception {
+		return fordUserinfoExamMapper.selectByExample(fordUserinfoExamExample);
+	}
+
 }
