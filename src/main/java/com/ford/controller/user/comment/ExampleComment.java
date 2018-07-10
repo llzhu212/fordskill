@@ -9,5 +9,5 @@ public class ExampleComment {
 	
 	public static final String EXAM_EXAMADDRESS = "https://ks.wjx.top/jq/25253413.aspx?sojumpparm=";
 	
-	public static final String EXAM_SHOWRUWEI_TIME = "2018-07-20 00:00:00";
+	public static final String EXAM_SHOWRUWEI_TIME = "2018-07-01 00:00:00";
 }

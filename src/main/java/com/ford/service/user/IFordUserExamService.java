@@ -3,6 +3,7 @@ package com.ford.service.user;
 import java.util.List;
 
 import com.ford.entity.user.FordUserinfoExam;
+import com.ford.entity.user.FordUserinfoExamExample;
 
 public interface IFordUserExamService {
 	
@@ -15,4 +16,7 @@ public interface IFordUserExamService {
 	 * @throws Exception
 	 */
 	public List<FordUserinfoExam> queryExamScore(String openid)throws Exception;
+	
+	public List<FordUserinfoExam> findFordExams(FordUserinfoExamExample fordUserinfoExamExample)
+			throws Exception;
 }
