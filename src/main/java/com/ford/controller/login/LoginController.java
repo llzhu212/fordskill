@@ -35,7 +35,6 @@ public class LoginController {
 	 */
 	@RequestMapping(value ="/forwardLogin")
 	public String forwardLogin(HttpServletRequest request) throws Exception {
-		
 		//判断登录session
 		LoginSessionVO loginSessionVO = (LoginSessionVO) request.getSession().getAttribute("loginSessionVO");
 		if(null!=loginSessionVO){
@@ -44,15 +43,10 @@ public class LoginController {
 		/**
 		 * 判断openid
 		 */
-//		String openid = (String) request.getSession().getAttribute("openid");
 		String openid =(String) request.getParameter("openid"); 
 		//如果openid为空
 		if(null == openid || ""==openid){
 			return "redirect:http://wx.e2capp.com/auth.ashx?serv_name=ershou&scope=snsapi_userinfo&i=14";
-//			Date date = new Date();
-//			SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmsss");
-//			openid = sdf.format(date);
-//			return "redirect:/login/forwardLogin.action?openid="+openid;
 		}else{
 			request.getSession().setAttribute("openid", openid);
 			return "login";
@@ -89,7 +83,8 @@ public class LoginController {
 			//返回
 			return "login";
 		}
-		if(!loginUserVO.getAgentcode().equals(loginUserVO.getPassword())){
+		if(!loginUserVO.getAgentcode().toUpperCase().equals(
+				loginUserVO.getPassword().toUpperCase())){
 			//设置uservo
 			model.addAttribute("loginUserVO",loginUserVO);
 			//设置错误信息
