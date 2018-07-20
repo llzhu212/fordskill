@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body sroll="no" onclick="onload">
-<div class="container" style="background-image: url(../static/img/bg3.jpg)">
+<div class="container" style="background-image: url(../static/img/bg3.gif)">
 <form name="form1"  action="<%=path%>/registration/addRegistration.action" method="post" onSubmit="return checkreg()">
 	<div class="regis layui-anim layui-anim-up" style="text-align: center;">
 	<span style="color: white;font-size: 20px;font-weight: 700;">长安福特二手车技能大赛</span><br/>
