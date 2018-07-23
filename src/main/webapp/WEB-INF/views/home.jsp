@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-	<div class="container" style="background-image: url(../static/img/bg.gif)">
+	<div class="container" style="background-image: url(../static/img/bg1.png)">
 	<div class="content">
 				<a href="<%=path%>/registration/forwardRegistration.action" class="button">
 					<span class="line line-top"></span>
