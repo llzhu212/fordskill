@@ -94,7 +94,7 @@ public class LoginController {
 		}
 		//设置sesseoinuser
 		LoginSessionVO loginSessionVO = new LoginSessionVO();
-		loginSessionVO.setAgentcode(loginUserVO.getAgentcode());
+		loginSessionVO.setAgentcode(loginUserVO.getAgentcode().toUpperCase());
 		String openid = (String) request.getSession().getAttribute("openid");
 		loginSessionVO.setOpenid(openid);
 		request.getSession().setAttribute("loginSessionVO", loginSessionVO);
