@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-	<div class="container" style="background-image: url(../static/img/bg3.gif)">
+	<div class="container" style="background-image: url(../static/img/bg3.png)">
 		<div class="chongfu layui-anim layui-anim-up" style="text-align: center;">
 			<img width="30px" height="30px" src="../static/img/notice.png">&nbsp;&nbsp;
 			<span style="color: white;font-size: 20px;font-weight: 700;

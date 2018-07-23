@@ -217,7 +217,7 @@ box-shadow:inset 0px 1px 1px rgba(0,0,0,0.5);*/
 </head>
 
 <body sroll="no" onclick="onload">
-<div class="container" style="background-image: url(../static/img/bg3.gif)">
+<div class="container" style="background-image: url(../static/img/bg3.png)">
 <form name="form1"  action="<%=path%>/registration/addRegistration.action" method="post" onSubmit="return checkreg()">
 	<div class="regis layui-anim layui-anim-up" id="reg">
 	<div class="div_f">
