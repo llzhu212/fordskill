@@ -35,9 +35,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<center style="color: white;font-size: 20px;font-weight: 700;vertical-align: middle;">
 				我的成绩</center><br/>
 			<span style="color: white;">经销商：</span>
-			<span style="color: red;">${sessionScope.loginSessionVO.agentcode}</span><br>
+			<span style="color: white;">${sessionScope.loginSessionVO.agentcode}</span><br>
 			<span style="color: white;">分数：</span>
-			<span style="color: red;">${exam.totalvalue}</span>
+			<span style="color: white;">${exam.totalvalue}</span>
 			</div>
 			<button class="layui-btn layui-btn-radius layui-btn-normal"  
 			style="width: 50%; margin-top: 30px;"
