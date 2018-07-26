@@ -1,10 +1,7 @@
 package com.ford.controller.login;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
-import javax.persistence.metamodel.SetAttribute;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +13,6 @@ import com.ford.entity.login.LoginSessionVO;
 import com.ford.entity.login.LoginVO;
 import com.ford.entity.user.FordAgentinfo;
 import com.ford.service.login.ILoginService;
-import com.ford.utils.DateUtil;
 
 
 @Controller
