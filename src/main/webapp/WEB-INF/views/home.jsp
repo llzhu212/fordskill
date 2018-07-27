@@ -43,6 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="line line-left"></span>
 					查看成绩
 				</a>
+				<!-- 
 				<a href="<%=path%>/exam/toExamruwei.action" class="button">
 					<span class="line line-top"></span>
 					<span class="line line-right"></span>
@@ -50,6 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<span class="line line-left"></span>
 					入围名单
 				</a>
+				 -->
 		</div>
 	</div>
 </body>
