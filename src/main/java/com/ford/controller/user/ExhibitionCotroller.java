@@ -1,5 +1,11 @@
 package com.ford.controller.user;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,12 +13,9 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ford.controller.user.comment.ExampleComment;
 import com.ford.controller.user.comment.ExhibitionComment;
 import com.ford.entity.exhibition.FordExhibitionSupplier;
 import com.ford.entity.exhibition.FordExhibitionSupplierExample;
@@ -125,36 +128,32 @@ public class ExhibitionCotroller {
 		return modelAndView;
 	}
 
-	// @RequestMapping(value = "/forwardAdd.act")
-	// public void forwardAdd() throws Exception {
-	// ModelAndView modelAndView = new ModelAndView();
-	// try {
-	// DataInputStream in = new DataInputStream(new FileInputStream(new
-	// File("E:/私人文件/二手车代码交接/经销商信息表测试用.csv")));
-	// BufferedReader br= new BufferedReader(new InputStreamReader(in,"GBK"));
-	// List<FordAgentinfo> list = new ArrayList<>();
-	// String line = null;
-	// int i = 1;
-	// while((line=br.readLine())!=null){
-	// String item[] = line.split(",");//CSV格式文件为逗号分隔符文件，这里根据逗号切分
-	// FordAgentinfo fordAgentinfo = new FordAgentinfo();
-	// fordAgentinfo.setRegion(item[0]);
-	// fordAgentinfo.setProvince(item[1]);
-	// fordAgentinfo.setCity(item[2]);
-	// fordAgentinfo.setCode(item[3]);
-	// fordAgentinfo.setAbbreviation(item[4]);
-	// fordAgentinfo.setName(item[5]);
-	// fordagentinfoService.addInfo(fordAgentinfo);
-	// System.out.println("添加第"+i+"条信息");
-	// list.add(fordAgentinfo);
-	// i++;
-	// }
-	// System.out.println("读取完毕,总共读取:"+i+"条信息");
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	//// return modelAndView;
-	// }
+//	@RequestMapping(value = "/forwardAddc.act")
+//	public void forwardAddc() throws Exception {
+//		ModelAndView modelAndView = new ModelAndView();
+//		try {
+//			DataInputStream in = new DataInputStream(new FileInputStream(new File("E:/私人文件/二手车代码交接/606.csv")));
+//			BufferedReader br = new BufferedReader(new InputStreamReader(in, "GBK"));
+//			List<FordAgentinfo> list = new ArrayList<>();
+//			String line = null;
+//			int i = 1;
+//			while ((line = br.readLine()) != null) {
+//				String item[] = line.split(",");// CSV格式文件为逗号分隔符文件，这里根据逗号切分
+//				FordAgentinfo fordAgentinfo = new FordAgentinfo();
+//				fordAgentinfo.setRegion(item[0]);
+//                fordAgentinfo.setAbbreviation(item[1]);
+//                fordAgentinfo.setCode(item[2]);
+//				fordagentinfoService.addInfo(fordAgentinfo);
+//				System.out.println("添加第" + i + "条信息");
+//				list.add(fordAgentinfo);
+//				i++;
+//			}
+//			System.out.println("读取完毕,总共读取:" + i + "条信息");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		// return modelAndView;
+//	}
 
 	@RequestMapping(value = "/forwardAdd.act")
 	public ModelAndView forwardAdd() throws Exception {
