@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<button class="layui-btn layui-btn-radius layui-btn-normal"  
 			style="width: 50%; margin-top: 30px;"
-			 onclick="javascript:window.location.href='https://www.wjx.cn/resultquery.aspx?activity=25253413'"
+			 onclick="javascript:window.location.href='https://www.wjx.cn/resultquery.aspx?activity=26433046'"
 					  type="submit" lay-filter="login">查看试卷详情</button>
 		</div>
 	</div>
