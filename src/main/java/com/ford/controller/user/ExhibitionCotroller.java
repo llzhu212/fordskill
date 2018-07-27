@@ -142,6 +142,7 @@ public class ExhibitionCotroller {
 //				FordAgentinfo fordAgentinfo = new FordAgentinfo();
 //				fordAgentinfo.setRegion(item[0]);
 //                fordAgentinfo.setAbbreviation(item[1]);
+//                fordAgentinfo.setName(item[1]);
 //                fordAgentinfo.setCode(item[2]);
 //				fordagentinfoService.addInfo(fordAgentinfo);
 //				System.out.println("添加第" + i + "条信息");
