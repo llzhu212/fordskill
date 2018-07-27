@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body sroll="no" onclick="onload">
-<div class="container" style="background-image: url(../static/img/bg3.gif)">
+<div class="container" style="background-image: url(../static/img/bg3.png)">
 <form name="form1"  action="<%=path%>/registration/addRegistration.action" method="post" onSubmit="return checkreg()">
 	<div class="regis layui-anim layui-anim-up" style="text-align: center;">
 	<span style="color: white;font-size: 20px;font-weight: 700;">长安福特二手车技能大赛</span><br/>
@@ -157,6 +157,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="div_f">
 		<div class="div_col" id="me">
 			<div class="div_c_l"><span>6、山东福特福</span></div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="div_f">
+		<div class="div_col" id="me">
+			<div class="div_c_l"><span>7、山东福特福</span></div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="div_f">
+		<div class="div_col" id="me">
+			<div class="div_c_l"><span>8、山东福特福</span></div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="div_f">
+		<div class="div_col" id="me">
+			<div class="div_c_l"><span>9、山东福特福</span></div>
 		</div>
 		<div style="clear:both"></div>
 	</div>

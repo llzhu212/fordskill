@@ -29,11 +29,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body >
-	<div class="container" style="background-image: url(../static/img/bg3.gif)">
+	<div class="container" style="background-image: url(../static/img/bg3.png)">
 		<div class="chongfu layui-anim layui-anim-up" style="text-align: left;" >
 			<center style="color: white;font-size: 20px;font-weight: 700;">考试规则</center><br/>
 			<p>
-			<span style="color: white;">1、考试时间：10:00--11:00<br>
+			<span style="color: white;">1、考试时间：10:30--11:10<br>
 			2、考试包括单选题，多选题，判断题<br>
 			3、考试时间到，如你没有人工点击交卷，系统将自动收卷
 			</span>
