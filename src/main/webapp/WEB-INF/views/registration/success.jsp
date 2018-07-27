@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<img width="30px" height="30px" src="../static/img/success.png">&nbsp; 
 			<span style="color: white;font-size: 20px;font-weight: 700;vertical-align: middle;">
 				报名成功</span><br/><br/>
-			<span style="color: white;font-weight: lighter;">请在8月23日10:30进行答题</span>
+			<span style="color: white;font-weight: lighter;">请在8月23日规定时间内答题</span><br>
 			<button class="layui-btn layui-btn-radius layui-btn-normal"  
 			style="width: 50%; margin-top: 40px;"
 			 onclick="javascript:window.location.href='<%=path%>/login/toHome.action'"
