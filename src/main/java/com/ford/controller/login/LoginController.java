@@ -79,8 +79,8 @@ public class LoginController {
 			//返回
 			return "login";
 		}
-		if(!loginUserVO.getAgentcode().toUpperCase().equals(
-				loginUserVO.getPassword().toUpperCase())){
+		if(!loginUserVO.getAgentcode().trim().toUpperCase().equals(
+				loginUserVO.getPassword().trim().toUpperCase())){
 			//设置uservo
 			model.addAttribute("loginUserVO",loginUserVO);
 			//设置错误信息
@@ -90,7 +90,7 @@ public class LoginController {
 		}
 		//设置sesseoinuser
 		LoginSessionVO loginSessionVO = new LoginSessionVO();
-		loginSessionVO.setAgentcode(loginUserVO.getAgentcode().toUpperCase());
+		loginSessionVO.setAgentcode(loginUserVO.getAgentcode().trim().toUpperCase());
 		String openid = (String) request.getSession().getAttribute("openid");
 		loginSessionVO.setOpenid(openid);
 		request.getSession().setAttribute("loginSessionVO", loginSessionVO);

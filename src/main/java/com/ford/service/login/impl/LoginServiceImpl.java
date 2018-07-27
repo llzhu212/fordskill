@@ -28,7 +28,7 @@ public class LoginServiceImpl implements ILoginService {
 	public List authority(LoginVO loginUserVO)throws Exception {
 		FordAgentinfoExample fordAgentinfoExample = new FordAgentinfoExample();
 		Criteria criteria = fordAgentinfoExample.createCriteria();
-		criteria.andCodeEqualTo(loginUserVO.getAgentcode().toUpperCase());
+		criteria.andCodeEqualTo(loginUserVO.getAgentcode().trim().toUpperCase());
 		List<FordAgentinfo> list = fordagentinfoService.selectFordInfoByCondition(fordAgentinfoExample);
 		return list;
 	}
